@@ -53,7 +53,7 @@ with col_action_1:
     if st.button("\u2795  New Analysis", use_container_width=True, type="primary"):
         st.switch_page("pages/1_New_Analysis.py")
 with col_action_2:
-    if st.button("\ud83d\udcda  View History", use_container_width=True):
+    if st.button("\U0001f4da  View History", use_container_width=True):
         st.switch_page("pages/3_History.py")
 
 st.markdown("")
