@@ -205,6 +205,53 @@ BRAND_CSS = """
     .risk-table tr:hover td {
         background: rgba(255, 255, 255, 0.04);
     }
+
+    /* ── Primary Buttons (green accent) ── */
+    .stButton > button[kind="primary"],
+    .stButton > button[data-testid="stBaseButton-primary"] {
+        background-color: var(--green-accent) !important;
+        color: var(--white) !important;
+        border: 1px solid var(--green-accent) !important;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background-color 0.2s, border-color 0.2s;
+    }
+    .stButton > button[kind="primary"]:hover,
+    .stButton > button[data-testid="stBaseButton-primary"]:hover {
+        background-color: #0ea472 !important;
+        border-color: #0ea472 !important;
+    }
+
+    /* ── Secondary Buttons (charcoal) ── */
+    .stButton > button[kind="secondary"],
+    .stButton > button[data-testid="stBaseButton-secondary"] {
+        background-color: var(--charcoal) !important;
+        color: var(--white) !important;
+        border: 1px solid var(--card-border) !important;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background-color 0.2s, border-color 0.2s;
+    }
+    .stButton > button[kind="secondary"]:hover,
+    .stButton > button[data-testid="stBaseButton-secondary"]:hover {
+        background-color: #2a3333 !important;
+        border-color: var(--white) !important;
+    }
+
+    /* ── Text Inputs & Selectboxes ── */
+    .stTextInput > div > div > input,
+    .stTextArea > div > div > textarea,
+    .stSelectbox > div > div {
+        background-color: var(--charcoal-light) !important;
+        color: var(--white) !important;
+        border: 1px solid var(--card-border) !important;
+        border-radius: 8px;
+    }
+    .stTextInput > div > div > input:focus,
+    .stTextArea > div > div > textarea:focus {
+        border-color: var(--green-accent) !important;
+        box-shadow: 0 0 0 1px var(--green-accent) !important;
+    }
 </style>
 """
 

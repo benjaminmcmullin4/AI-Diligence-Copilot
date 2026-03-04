@@ -31,7 +31,7 @@ st.markdown(
     """
     <div class="brand-header">
         <span class="brand-name">Traverse</span>
-        <span class="tagline">Diligence Copilot · Building Better</span>
+        <span class="tagline">Diligence Copilot</span>
     </div>
     """,
     unsafe_allow_html=True,
