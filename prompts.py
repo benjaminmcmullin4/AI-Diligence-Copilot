@@ -1,9 +1,14 @@
-# ---------------------------------------------------------------------------
-# Meridian — Diligence Copilot
-# Prompt templates for the three-stage LLM pipeline
-# ---------------------------------------------------------------------------
+"""Prompt templates for the three-stage LLM pipeline.
 
-# ── Stage A: Condense Raw Inputs ──────────────────────────────────────────
+Meridian Diligence Copilot — Stage A (Condense), Stage B (Analysis),
+Stage C (Memo Rendering).
+"""
+
+from __future__ import annotations
+
+# ---------------------------------------------------------------------------
+# Stage A: Condense Raw Inputs
+# ---------------------------------------------------------------------------
 
 STAGE_A_SYSTEM = """\
 You are a senior associate at a top-tier growth equity firm (e.g., General Atlantic, \
@@ -76,7 +81,9 @@ Produce a structured condensed summary following the section labels specified in
 system instructions. Classify the business model and flag all data quality issues."""
 
 
-# ── Stage B: Deep Analysis — SaaS ────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# Stage B: Deep Analysis — SaaS
+# ---------------------------------------------------------------------------
 
 STAGE_B_SAAS_SYSTEM = """\
 You are a Vice President on the deal team at a leading growth equity firm, preparing \
@@ -225,7 +232,9 @@ Generate the {"ARR bridge and cohort vintage data" if business_model == "SaaS" e
 even if you need to use illustrative figures (clearly labelled)."""
 
 
-# ── Stage C: Memo Rendering ──────────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# Stage C: Memo Rendering
+# ---------------------------------------------------------------------------
 
 STAGE_C_SYSTEM = """\
 You are a Principal at a top-tier growth equity firm, responsible for writing the \

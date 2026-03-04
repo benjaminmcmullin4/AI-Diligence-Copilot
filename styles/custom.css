@@ -1,0 +1,454 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   Meridian Diligence Copilot — Light Theme Design System
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ── CSS Variables ──────────────────────────────────────────────────────── */
+:root {
+    --navy: #0A0A0A;
+    --steel-blue: #333333;
+    --teal: #1ABC9C;
+    --teal-dark: #16A085;
+    --red-accent: #E74C3C;
+    --gold-accent: #D4A338;
+    --orange-accent: #E67E22;
+    --bg: #FAFBFC;
+    --text: #1A1A1A;
+    --muted: #777777;
+    --light-gray: #ECF0F1;
+    --white: #FFFFFF;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ── Global Overrides ──────────────────────────────────────────────────── */
+html, body, .stApp {
+    font-family: var(--font-family) !important;
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+}
+
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header[data-testid="stHeader"] {background: transparent !important;}
+
+/* ── Block Container ───────────────────────────────────────────────────── */
+.block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    max-width: 1200px !important;
+}
+
+/* ── Sidebar ───────────────────────────────────────────────────────────── */
+section[data-testid="stSidebar"] {
+    background-color: var(--navy) !important;
+}
+
+section[data-testid="stSidebar"] * {
+    color: var(--white) !important;
+}
+
+section[data-testid="stSidebar"] .stSelectbox > div > div,
+section[data-testid="stSidebar"] .stTextInput > div > div > input {
+    background-color: #1a1a1a !important;
+    border: 1px solid #333333 !important;
+    color: var(--white) !important;
+}
+
+section[data-testid="stSidebar"] hr {
+    border-color: #333333 !important;
+}
+
+/* ── Brand Header ──────────────────────────────────────────────────────── */
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0 0.5rem 0;
+}
+
+.brand-header .brand-name {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+}
+
+.brand-header .tagline {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-left: 0.25rem;
+    align-self: flex-end;
+    padding-bottom: 0.35rem;
+}
+
+/* ── Section Headers ───────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--navy) !important;
+    font-family: var(--font-family) !important;
+}
+
+.section-header {
+    color: var(--navy);
+    font-weight: 700;
+    padding-bottom: 0.4rem;
+    border-bottom: 3px solid var(--teal);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+/* ── Metric Cards ──────────────────────────────────────────────────────── */
+.metric-card {
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 0.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.metric-card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 2px 8px rgba(26, 188, 156, 0.1);
+}
+
+.metric-card .metric-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.metric-card .metric-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.metric-card .metric-benchmark {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+}
+
+/* ── Demo Cards ────────────────────────────────────────────────────────── */
+.demo-card {
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 12px;
+    padding: 1.5rem;
+    min-height: 180px;
+    transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.demo-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--teal);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.demo-card h3 {
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+}
+
+.demo-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* ── Demo Banner ───────────────────────────────────────────────────────── */
+.demo-banner {
+    background: linear-gradient(135deg, #0A0A0A 0%, #1a1a2e 50%, #16213e 100%);
+    color: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.demo-banner h2 {
+    color: var(--white) !important;
+    margin-bottom: 0.5rem;
+}
+
+.demo-banner p {
+    color: #B0B0B0;
+}
+
+/* ── Risk / Severity Badges ────────────────────────────────────────────── */
+.risk-badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.risk-badge.green,
+.risk-badge.severity-1,
+.risk-badge.severity-2 {
+    background: rgba(26, 188, 156, 0.12);
+    color: var(--teal);
+    border: 1px solid rgba(26, 188, 156, 0.3);
+}
+
+.risk-badge.yellow,
+.risk-badge.severity-3 {
+    background: rgba(212, 163, 56, 0.12);
+    color: var(--gold-accent);
+    border: 1px solid rgba(212, 163, 56, 0.3);
+}
+
+.risk-badge.orange,
+.risk-badge.severity-4 {
+    background: rgba(230, 126, 34, 0.12);
+    color: var(--orange-accent);
+    border: 1px solid rgba(230, 126, 34, 0.3);
+}
+
+.risk-badge.red,
+.risk-badge.severity-5 {
+    background: rgba(231, 76, 60, 0.12);
+    color: var(--red-accent);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* ── Status Badges ─────────────────────────────────────────────────────── */
+.status-badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-badge.completed {
+    background: rgba(26, 188, 156, 0.12);
+    color: #16A085;
+}
+
+.status-badge.running {
+    background: rgba(212, 163, 56, 0.12);
+    color: var(--gold-accent);
+}
+
+.status-badge.failed {
+    background: rgba(231, 76, 60, 0.12);
+    color: var(--red-accent);
+}
+
+.status-badge.pending {
+    background: rgba(119, 119, 119, 0.12);
+    color: var(--muted);
+}
+
+/* ── Callout Boxes ─────────────────────────────────────────────────────── */
+.callout-green {
+    background: rgba(26, 188, 156, 0.06);
+    border-left: 4px solid var(--teal);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0;
+    color: var(--text);
+}
+
+.callout-red {
+    background: rgba(231, 76, 60, 0.06);
+    border-left: 4px solid var(--red-accent);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.75rem 0;
+    color: var(--text);
+}
+
+/* ── Risk Table ────────────────────────────────────────────────────────── */
+.risk-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.risk-table th {
+    background: var(--navy);
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.4px;
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.risk-table td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--light-gray);
+    color: var(--text);
+    vertical-align: top;
+}
+
+.risk-table tr:hover td {
+    background: rgba(26, 188, 156, 0.04);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────── */
+.stButton > button[kind="primary"],
+.stButton > button[data-testid="stBaseButton-primary"] {
+    background-color: var(--navy) !important;
+    color: var(--white) !important;
+    border: 1px solid var(--navy) !important;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: var(--font-family) !important;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.stButton > button[kind="primary"]:hover,
+.stButton > button[data-testid="stBaseButton-primary"]:hover {
+    background-color: #222222 !important;
+    border-color: #222222 !important;
+}
+
+.stButton > button[kind="secondary"],
+.stButton > button[data-testid="stBaseButton-secondary"] {
+    background-color: var(--white) !important;
+    color: var(--navy) !important;
+    border: 1px solid var(--light-gray) !important;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: var(--font-family) !important;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.stButton > button[kind="secondary"]:hover,
+.stButton > button[data-testid="stBaseButton-secondary"]:hover {
+    background-color: #F0F4F8 !important;
+    border-color: var(--teal) !important;
+}
+
+/* ── Tabs ──────────────────────────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 0;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.stTabs [data-baseweb="tab"] {
+    color: var(--muted) !important;
+    font-weight: 500;
+    font-family: var(--font-family) !important;
+    border-bottom: 3px solid transparent;
+    padding: 0.5rem 1.25rem;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: var(--text) !important;
+}
+
+.stTabs [aria-selected="true"] {
+    color: var(--navy) !important;
+    font-weight: 700;
+    border-bottom: 3px solid var(--teal) !important;
+}
+
+.stTabs [data-baseweb="tab-highlight"] {
+    background-color: var(--teal) !important;
+}
+
+/* ── Tables (general Streamlit dataframes) ─────────────────────────────── */
+.stDataFrame thead th {
+    background-color: var(--navy) !important;
+    color: var(--white) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+}
+
+/* ── Text Inputs & Selectboxes ─────────────────────────────────────────── */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stSelectbox > div > div {
+    background-color: var(--white) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--light-gray) !important;
+    border-radius: 8px;
+    font-family: var(--font-family) !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+    border-color: var(--teal) !important;
+    box-shadow: 0 0 0 1px var(--teal) !important;
+}
+
+/* ── Citation / Source tag ─────────────────────────────────────────────── */
+.citation {
+    display: inline-block;
+    font-size: 0.7rem;
+    color: var(--muted);
+    background: rgba(119, 119, 119, 0.08);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    margin-left: 0.3rem;
+    font-style: italic;
+}
+
+/* ── Expander ──────────────────────────────────────────────────────────── */
+.streamlit-expanderHeader {
+    font-family: var(--font-family) !important;
+    font-weight: 600;
+    color: var(--navy) !important;
+    background-color: var(--white) !important;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+}
+
+details[data-testid="stExpander"] {
+    border: 1px solid var(--light-gray) !important;
+    border-radius: 8px !important;
+    background-color: var(--white) !important;
+}
+
+/* ── Dividers ──────────────────────────────────────────────────────────── */
+hr {
+    border-color: var(--light-gray) !important;
+}
+
+/* ── Download Buttons ──────────────────────────────────────────────────── */
+.stDownloadButton > button {
+    background-color: var(--white) !important;
+    color: var(--navy) !important;
+    border: 1px solid var(--light-gray) !important;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: var(--font-family) !important;
+}
+
+.stDownloadButton > button:hover {
+    background-color: #F0F4F8 !important;
+    border-color: var(--teal) !important;
+    color: var(--teal) !important;
+}
+
+/* ── Metric widget override ────────────────────────────────────────────── */
+[data-testid="stMetric"] {
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+[data-testid="stMetricLabel"] {
+    color: var(--muted) !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+[data-testid="stMetricValue"] {
+    color: var(--navy) !important;
+    font-weight: 700 !important;
+}

@@ -1,22 +1,31 @@
 """Lightweight email OTP authentication for Streamlit."""
 
+from __future__ import annotations
+
 import hashlib
 import secrets
 import sqlite3
 from datetime import datetime, timezone
 
 import resend
-
 import streamlit as st
 
-from core.config import Settings
+from config import (
+    ALLOWED_EMAIL_DOMAINS,
+    AUTH_ENABLED,
+    DB_PATH,
+    OTP_FROM_EMAIL,
+    RESEND_API_KEY,
+)
 
 OTP_EXPIRY_MINUTES = 10
 
 
-def _get_otp_db(settings: Settings) -> sqlite3.Connection:
+# ── Private helpers ────────────────────────────────────────────────────────
+
+def _get_otp_db() -> sqlite3.Connection:
     """Get a connection to the OTP database (same DB as analyses)."""
-    conn = sqlite3.connect(str(settings.db_path))
+    conn = sqlite3.connect(str(DB_PATH))
     conn.execute(
         """CREATE TABLE IF NOT EXISTS otp_codes (
             email TEXT NOT NULL,
@@ -37,25 +46,25 @@ def _generate_otp() -> str:
     return f"{secrets.randbelow(1000000):06d}"
 
 
-def _send_otp_email(settings: Settings, to_email: str, code: str) -> bool:
+def _send_otp_email(to_email: str, code: str) -> bool:
     """Send OTP code via Resend API."""
-    if not settings.resend_api_key:
+    if not RESEND_API_KEY:
         st.error("Resend API key not configured. Contact your administrator.")
         return False
 
-    resend.api_key = settings.resend_api_key
+    resend.api_key = RESEND_API_KEY
 
     try:
         resend.Emails.send(
             {
-                "from": settings.otp_from_email,
+                "from": OTP_FROM_EMAIL,
                 "to": [to_email],
-                "subject": f"Meridian Diligence Copilot — Verification Code: {code}",
+                "subject": f"Meridian Diligence Copilot \u2014 Verification Code: {code}",
                 "text": (
                     f"Your verification code is: {code}\n\n"
                     f"This code expires in {OTP_EXPIRY_MINUTES} minutes.\n\n"
                     f"If you did not request this code, please ignore this email.\n\n"
-                    f"— Meridian Diligence Copilot"
+                    f"\u2014 Meridian Diligence Copilot"
                 ),
             }
         )
@@ -65,8 +74,8 @@ def _send_otp_email(settings: Settings, to_email: str, code: str) -> bool:
         return False
 
 
-def _store_otp(settings: Settings, email: str, code: str) -> None:
-    conn = _get_otp_db(settings)
+def _store_otp(email: str, code: str) -> None:
+    conn = _get_otp_db()
     conn.execute(
         "INSERT INTO otp_codes (email, code_hash, created_at) VALUES (?, ?, ?)",
         (email.lower(), _hash_code(code), datetime.now(timezone.utc).isoformat()),
@@ -75,8 +84,8 @@ def _store_otp(settings: Settings, email: str, code: str) -> None:
     conn.close()
 
 
-def _verify_otp(settings: Settings, email: str, code: str) -> bool:
-    conn = _get_otp_db(settings)
+def _verify_otp(email: str, code: str) -> bool:
+    conn = _get_otp_db()
     cursor = conn.execute(
         "SELECT rowid, created_at FROM otp_codes WHERE email = ? AND code_hash = ? AND used = 0 "
         "ORDER BY created_at DESC LIMIT 1",
@@ -101,26 +110,26 @@ def _verify_otp(settings: Settings, email: str, code: str) -> bool:
     return True
 
 
-def _validate_email_domain(settings: Settings, email: str) -> bool:
+def _validate_email_domain(email: str) -> bool:
     """Check if email domain is in the allowlist (if configured)."""
-    if not settings.allowed_email_domains:
+    if not ALLOWED_EMAIL_DOMAINS:
         return True
-    allowed = [d.strip().lower() for d in settings.allowed_email_domains.split(",") if d.strip()]
+    allowed = [d.strip().lower() for d in ALLOWED_EMAIL_DOMAINS.split(",") if d.strip()]
     if not allowed:
         return True
     domain = email.lower().split("@")[-1]
     return domain in allowed
 
 
-def _render_login_form(settings: Settings) -> None:
-    """Render the branded login form."""
+def _render_login_form() -> None:
+    """Render the branded login form (light theme)."""
     st.markdown(
         """
         <div class="brand-header" style="justify-content: center; padding-top: 3rem;">
             <span class="brand-name">Meridian</span>
             <span class="tagline">Diligence Copilot</span>
         </div>
-        <div style="text-align: center; color: #A8A8A8; margin-bottom: 2rem;">
+        <div style="text-align: center; color: #777777; margin-bottom: 2rem;">
             Sign in to continue
         </div>
         """,
@@ -141,12 +150,12 @@ def _render_login_form(settings: Settings) -> None:
             if st.button("Send Verification Code", type="primary", use_container_width=True):
                 if not email or "@" not in email:
                     st.error("Please enter a valid email address.")
-                elif not _validate_email_domain(settings, email):
+                elif not _validate_email_domain(email):
                     st.error("This email domain is not authorized.")
                 else:
                     code = _generate_otp()
-                    _store_otp(settings, email, code)
-                    if _send_otp_email(settings, email, code):
+                    _store_otp(email, code)
+                    if _send_otp_email(email, code):
                         st.session_state["otp_email"] = email
                         st.session_state["otp_step"] = "verify"
                         st.rerun()
@@ -157,7 +166,7 @@ def _render_login_form(settings: Settings) -> None:
             col_verify, col_back = st.columns(2)
             with col_verify:
                 if st.button("Verify", type="primary", use_container_width=True):
-                    if _verify_otp(settings, st.session_state["otp_email"], code):
+                    if _verify_otp(st.session_state["otp_email"], code):
                         st.session_state["authenticated"] = True
                         st.session_state["user_email"] = st.session_state["otp_email"]
                         st.session_state.pop("otp_step", None)
@@ -171,17 +180,36 @@ def _render_login_form(settings: Settings) -> None:
                     st.rerun()
 
 
-def require_auth(settings: Settings) -> None:
+# ── Public API ─────────────────────────────────────────────────────────────
+
+def require_auth() -> None:
     """Gate page content behind OTP authentication.
 
-    Call at the top of every page after inject_custom_css() and get_settings().
+    Call at the top of every page after injecting CSS.
     If AUTH_ENABLED is false, this is a no-op.
     """
-    if not settings.auth_enabled:
+    if not AUTH_ENABLED:
         return
 
     if st.session_state.get("authenticated"):
         return
 
-    _render_login_form(settings)
+    _render_login_form()
     st.stop()
+
+
+def is_authenticated() -> bool:
+    """Return True if the user has passed authentication (or auth is disabled)."""
+    if not AUTH_ENABLED:
+        return True
+    return bool(st.session_state.get("authenticated"))
+
+
+def get_auth_email() -> str:
+    """Return the authenticated user's email, or empty string."""
+    return st.session_state.get("user_email", "")
+
+
+def render_auth_gate() -> None:
+    """Alias for require_auth() — matches VC Research Agent naming convention."""
+    require_auth()

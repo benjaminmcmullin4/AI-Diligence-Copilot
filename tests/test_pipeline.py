@@ -1,7 +1,7 @@
 """Tests for pipeline modules (non-LLM logic)."""
 
-from pipeline.prompts import STAGE_A_SYSTEM, STAGE_B_SAAS_SYSTEM, STAGE_B_NON_SAAS_SYSTEM
-from pipeline.prompts import stage_a_user_prompt
+from prompts import STAGE_A_SYSTEM, STAGE_B_SAAS_SYSTEM, STAGE_B_NON_SAAS_SYSTEM
+from prompts import stage_a_user_prompt
 
 
 class TestPrompts:

@@ -1,4 +1,9 @@
-"""Website text extraction using BeautifulSoup."""
+"""Website text extraction using BeautifulSoup.
+
+Fetches a URL and returns cleaned body text suitable for LLM consumption.
+"""
+
+from __future__ import annotations
 
 import requests
 from bs4 import BeautifulSoup

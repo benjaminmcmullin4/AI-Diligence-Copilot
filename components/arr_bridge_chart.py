@@ -1,9 +1,12 @@
 """ARR bridge waterfall chart component using Plotly."""
 
+from __future__ import annotations
+
 import plotly.graph_objects as go
 import streamlit as st
 
-from schemas.saas import ARRBridge
+from config import COLORS
+from schema import ARRBridge
 
 
 def render_arr_bridge_chart(arr_bridge: ARRBridge) -> None:
@@ -11,9 +14,6 @@ def render_arr_bridge_chart(arr_bridge: ARRBridge) -> None:
 
     Shows the flow from Beginning ARR to Ending ARR through New, Expansion,
     Contraction, and Churn components.
-
-    Args:
-        arr_bridge: ARRBridge object with waterfall components.
     """
     labels = [
         "Beginning ARR",
@@ -28,12 +28,11 @@ def render_arr_bridge_chart(arr_bridge: ARRBridge) -> None:
         arr_bridge.beginning_arr,
         arr_bridge.new_arr,
         arr_bridge.expansion_arr,
-        arr_bridge.contraction_arr,  # Expected negative
-        arr_bridge.churn_arr,        # Expected negative
+        arr_bridge.contraction_arr,
+        arr_bridge.churn_arr,
         arr_bridge.ending_arr,
     ]
 
-    # Waterfall measure types: "absolute" for start/end, "relative" for changes
     measures = ["absolute", "relative", "relative", "relative", "relative", "total"]
 
     fig = go.Figure(go.Waterfall(
@@ -44,30 +43,19 @@ def render_arr_bridge_chart(arr_bridge: ARRBridge) -> None:
         y=values,
         textposition="outside",
         text=[f"${v:+.1f}M" if m == "relative" else f"${v:.1f}M" for v, m in zip(values, measures)],
-        connector=dict(line=dict(color="#353F3F", width=1)),
-        increasing=dict(marker=dict(color="#A8A8A8")),
-        decreasing=dict(marker=dict(color="#ef4444")),
-        totals=dict(marker=dict(color="#000000", line=dict(color="#FFFFFF", width=2))),
+        connector=dict(line=dict(color=COLORS["light_gray"], width=1)),
+        increasing=dict(marker=dict(color=COLORS["teal"])),
+        decreasing=dict(marker=dict(color=COLORS["red_accent"])),
+        totals=dict(marker=dict(color=COLORS["navy"], line=dict(color=COLORS["white"], width=2))),
     ))
 
     fig.update_layout(
-        title=dict(
-            text="ARR Bridge ($M)",
-            font=dict(color="#FFFFFF", size=16),
-        ),
-        xaxis=dict(
-            color="#A8A8A8",
-            tickfont=dict(size=11),
-        ),
-        yaxis=dict(
-            title="ARR ($M)",
-            color="#A8A8A8",
-            gridcolor="#353F3F",
-            zeroline=False,
-        ),
-        plot_bgcolor="#000000",
-        paper_bgcolor="#000000",
-        font=dict(color="#FFFFFF"),
+        title=dict(text="ARR Bridge ($M)", font=dict(color=COLORS["navy"], size=16)),
+        xaxis=dict(color=COLORS["muted"], tickfont=dict(size=11)),
+        yaxis=dict(title="ARR ($M)", color=COLORS["muted"], gridcolor=COLORS["light_gray"], zeroline=False),
+        plot_bgcolor=COLORS["white"],
+        paper_bgcolor=COLORS["bg"],
+        font=dict(color=COLORS["navy"], family="Inter"),
         showlegend=False,
         margin=dict(l=60, r=30, t=50, b=50),
     )

@@ -1,10 +1,10 @@
 """Tests for Pydantic schema validation."""
 
 import pytest
-from schemas.common import Competitor, EvidenceSource, Risk, SourcedClaim
-from schemas.input import AnalysisRequest, BusinessModelType
-from schemas.memo import CondensedInput
-from schemas.saas import ARRBridge, BenchmarkRating, CohortVintage
+from schema import Competitor, EvidenceSource, Risk, SourcedClaim
+from schema import AnalysisRequest, BusinessModelType
+from schema import CondensedInput
+from schema import ARRBridge, BenchmarkRating, CohortVintage
 
 
 class TestSourcedClaim:

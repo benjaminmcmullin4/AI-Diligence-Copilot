@@ -1,17 +1,31 @@
 """Competitor comparison table component."""
 
+from __future__ import annotations
+
 import streamlit as st
 
-from schemas.common import Competitor
+from schema import Competitor
+from config import COLORS
 
 
 def _threat_stars(level: int) -> str:
     """Return a star rating string for threat level (1-5)."""
     filled = level
     empty = 5 - level
-    colors = {1: "#10b981", 2: "#10b981", 3: "#f59e0b", 4: "#ef4444", 5: "#ef4444"}
-    color = colors.get(level, "#94a3b8")
-    stars = f'<span style="color: {color};">' + ("&#9733;" * filled) + ("&#9734;" * empty) + "</span>"
+    colors = {
+        1: COLORS["teal"],
+        2: COLORS["teal"],
+        3: COLORS["gold_accent"],
+        4: COLORS["red_accent"],
+        5: COLORS["red_accent"],
+    }
+    color = colors.get(level, COLORS["muted"])
+    stars = (
+        f'<span style="color: {color};">'
+        + ("&#9733;" * filled)
+        + ("&#9734;" * empty)
+        + "</span>"
+    )
     return stars
 
 
@@ -34,7 +48,7 @@ def render_competitor_table(competitors: list[Competitor]) -> None:
             <td>{comp.estimated_revenue}</td>
             <td>{_threat_stars(comp.threat_level)}</td>
             <td>{comp.differentiation}</td>
-            <td style="color: #94a3b8; font-size: 0.8rem;">{comp.source.value}</td>
+            <td style="color: {COLORS['muted']}; font-size: 0.8rem;">{comp.source.value}</td>
         </tr>
         """
 

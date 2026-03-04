@@ -1,27 +1,23 @@
 """Reusable metric card grid for benchmark-rated metrics."""
 
+from __future__ import annotations
+
 import streamlit as st
 
-from schemas.saas import BenchmarkRating
-
+from schema import BenchmarkRating
+from config import COLORS
 
 _RATING_COLORS = {
-    "green": "#10b981",
-    "yellow": "#f59e0b",
-    "red": "#ef4444",
-}
-
-_RATING_DELTA_PREFIX = {
-    "green": "",
-    "yellow": "",
-    "red": "",
+    "green": "#1ABC9C",   # teal
+    "yellow": "#D4A338",  # gold
+    "red": "#E74C3C",     # red accent
 }
 
 
 def _render_metric_card(name: str, rating: BenchmarkRating) -> None:
     """Render a single metric card with color-coded rating badge."""
-    color = _RATING_COLORS.get(rating.rating, "#94a3b8")
-    badge_class = rating.rating if rating.rating in ("green", "yellow", "red") else ""
+    color = _RATING_COLORS.get(rating.rating, COLORS["muted"])
+    badge_bg = color
 
     html = f"""
     <div class="metric-card">
@@ -29,9 +25,10 @@ def _render_metric_card(name: str, rating: BenchmarkRating) -> None:
         <div class="metric-value">{rating.value}</div>
         <div class="metric-benchmark">{rating.benchmark}</div>
         <div style="margin-top: 0.5rem;">
-            <span class="risk-badge {badge_class}">{rating.rating.upper()}</span>
+            <span style="background: {badge_bg}; color: white; padding: 0.15rem 0.5rem;
+            border-radius: 4px; font-size: 0.75rem; font-weight: 600;">{rating.rating.upper()}</span>
         </div>
-        <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 0.35rem;">
+        <div style="font-size: 0.78rem; color: {COLORS['muted']}; margin-top: 0.35rem;">
             {rating.commentary}
         </div>
     </div>

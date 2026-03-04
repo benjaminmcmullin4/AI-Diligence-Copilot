@@ -1,8 +1,10 @@
 """Risk table component with severity color coding."""
 
+from __future__ import annotations
+
 import streamlit as st
 
-from schemas.common import Risk
+from schema import Risk
 
 
 def _severity_badge(severity: int) -> str:

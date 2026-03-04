@@ -1,143 +1,77 @@
-"""Meridian | Diligence Copilot — Main Dashboard."""
+"""Meridian | Diligence Copilot — AI-powered commercial due diligence."""
+
+from __future__ import annotations
+
+import os
+from pathlib import Path
 
 import streamlit as st
 
+from config import COLORS, FIRM_NAME, APP_TITLE, APP_SUBTITLE, DB_PATH, get_api_key
+from db import init_db, load_demo_samples
+
+# ── Page config ─────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Meridian | Diligence Copilot",
-    page_icon=":chart_with_upwards_trend:",
+    page_title=f"{FIRM_NAME} | {APP_TITLE}",
+    page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-from components.styles import inject_custom_css
-from core.config import get_settings
-from core.database import init_db, list_analyses
-from demo.loader import load_demo_samples
+# ── Load custom CSS ────────────────────────────────────────────────────
+css_path = Path(__file__).parent / "styles" / "custom.css"
+if css_path.exists():
+    st.markdown(f"<style>{css_path.read_text()}</style>", unsafe_allow_html=True)
 
-# ── Inject brand CSS ──
-inject_custom_css()
+# ── Initialize DB & demo data ─────────────────────────────────────────
+init_db()
+load_demo_samples()
 
-# ── Settings & DB init ──
-settings = get_settings()
-init_db(settings.db_path)
-load_demo_samples(settings.db_path)
+# ── Auth gate ──────────────────────────────────────────────────────────
+from auth import require_auth
+require_auth()
 
-# ── Auth gate ──
-from core.auth import require_auth
-require_auth(settings)
+# ── Detect API key ─────────────────────────────────────────────────────
+api_key = get_api_key()
+demo_mode = not bool(api_key)
 
-# ── Hero Header ──
+# ── Sidebar ────────────────────────────────────────────────────────────
+from components.sidebar import render_sidebar
+sidebar_state = render_sidebar()
+
+# ── Header ─────────────────────────────────────────────────────────────
 st.markdown(
-    """
-    <div class="brand-header">
-        <span class="brand-name">Meridian</span>
-        <span class="tagline">Diligence Copilot</span>
-    </div>
-    """,
+    f'<h1 style="color: {COLORS["navy"]}; margin-bottom: 0;">{FIRM_NAME} | {APP_TITLE}</h1>'
+    f'<p style="color: {COLORS["muted"]}; margin-top: 0;">{APP_SUBTITLE}</p>',
     unsafe_allow_html=True,
 )
-st.markdown("---")
 
-# ── API Key Status ──
-if settings.has_api_key:
-    st.sidebar.success("Anthropic API key configured", icon="\u2705")
-else:
-    st.sidebar.warning(
-        "No API key — demo mode only. Add `ANTHROPIC_API_KEY` to `.env` for live analysis.",
-        icon="\u26a0\ufe0f",
+# Demo mode banner
+if demo_mode:
+    st.markdown(
+        '<div class="demo-banner">'
+        '🔬 <strong>Demo Mode</strong> — Add your Anthropic API key to run live analysis'
+        '</div>',
+        unsafe_allow_html=True,
     )
 
-# ── Quick Actions ──
-col_action_1, col_action_2, _ = st.columns([1, 1, 2])
-with col_action_1:
-    if st.button("\u2795  New Analysis", use_container_width=True, type="primary"):
-        st.switch_page("pages/1_New_Analysis.py")
-with col_action_2:
-    if st.button("\U0001f4da  View History", use_container_width=True):
-        st.switch_page("pages/3_History.py")
+# ── Tabs ───────────────────────────────────────────────────────────────
+tab_new, tab_view, tab_history = st.tabs(["New Analysis", "Analysis View", "History"])
 
-st.markdown("")
+from components.new_analysis_tab import render_new_analysis
+from components.analysis_view_tab import render_analysis_view
+from components.history_tab import render_history
 
-# ── Demo Analysis Cards ──
-st.subheader("Sample Analyses")
-st.caption("Pre-built examples showcasing the platform. Click View to explore.")
+with tab_new:
+    render_new_analysis()
 
-demo_cards = [
-    {
-        "id": "demo-acme-saas",
-        "title": "AcmeSaaS",
-        "desc": "B2B vertical SaaS for CRE. $15M ARR, 125% NRR, strong unit economics.",
-        "model": "SaaS",
-    },
-    {
-        "id": "demo-peak-health",
-        "title": "PeakHealth",
-        "desc": "Healthcare SaaS platform. $8M ARR, 105% NRR, mixed signals on retention.",
-        "model": "SaaS",
-    },
-    {
-        "id": "demo-summit-retail",
-        "title": "SummitRetail",
-        "desc": "Specialty outdoor retailer. $45M revenue, 18% EBITDA margins, 28 locations.",
-        "model": "Non-SaaS",
-    },
-]
+with tab_view:
+    # Check if an analysis was loaded from sidebar or query params
+    analysis_id = sidebar_state.get("loaded_analysis_id") or st.query_params.get("analysis_id")
+    if analysis_id:
+        render_analysis_view(analysis_id)
+    else:
+        st.info("Select an analysis from History or run a new one.")
 
-cols = st.columns(3)
-for col, card in zip(cols, demo_cards):
-    with col:
-        st.markdown(
-            f"""
-            <div class="demo-card">
-                <h3>{card["title"]}</h3>
-                <p>{card["desc"]}</p>
-                <div style="margin-top: 0.75rem;">
-                    <span class="risk-badge {'green' if card['model'] == 'SaaS' else 'yellow'}">
-                        {card["model"]}
-                    </span>
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        if st.button("View Analysis", key=f"demo_{card['id']}", use_container_width=True):
-            st.query_params["analysis_id"] = card["id"]
-            st.switch_page("pages/2_Analysis_View.py")
-
-st.markdown("")
-st.markdown("---")
-
-# ── Recent Analyses ──
-st.subheader("Recent Analyses")
-
-analyses = list_analyses(settings.db_path, include_demo=False)
-
-if not analyses:
-    st.info(
-        "No custom analyses yet. Click **New Analysis** above to get started, "
-        "or explore the sample analyses."
-    )
-else:
-    for analysis in analyses[:10]:
-        col_name, col_model, col_status, col_date, col_view = st.columns([3, 1, 1, 2, 1])
-        with col_name:
-            st.markdown(f"**{analysis['company_name']}**")
-        with col_model:
-            model_badge = "green" if analysis["business_model"] == "saas" else "yellow"
-            st.markdown(
-                f'<span class="risk-badge {model_badge}">{analysis["business_model"].upper()}</span>',
-                unsafe_allow_html=True,
-            )
-        with col_status:
-            status = analysis.get("status", "pending")
-            st.markdown(
-                f'<span class="status-badge {status}">{status.capitalize()}</span>',
-                unsafe_allow_html=True,
-            )
-        with col_date:
-            created = analysis.get("created_at", "")[:16].replace("T", " ")
-            st.caption(created)
-        with col_view:
-            if st.button("View", key=f"view_{analysis['id']}"):
-                st.query_params["analysis_id"] = analysis["id"]
-                st.switch_page("pages/2_Analysis_View.py")
+with tab_history:
+    render_history()

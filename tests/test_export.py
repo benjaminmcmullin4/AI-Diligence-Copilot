@@ -1,6 +1,6 @@
 """Tests for export modules."""
 
-from export.markdown_export import generate_memo_markdown
+from export import generate_memo_markdown
 
 
 class TestMarkdownExport:

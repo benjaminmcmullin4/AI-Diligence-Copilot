@@ -1,35 +1,31 @@
 """Cohort retention chart component using Plotly."""
 
+from __future__ import annotations
+
 import plotly.graph_objects as go
 import streamlit as st
 
-from schemas.saas import CohortVintage
+from config import COLORS
+from schema import CohortVintage
 
 
 def render_cohort_chart(cohort_vintages: list[CohortVintage]) -> None:
-    """Render a Plotly line chart of cohort retention curves.
-
-    Each cohort vintage is rendered as a separate line. X-axis is months
-    since cohort start, Y-axis is retention percentage.
-
-    Args:
-        cohort_vintages: List of CohortVintage objects to plot.
-    """
+    """Render a Plotly line chart of cohort retention curves."""
     if not cohort_vintages:
         st.info("No cohort data available.")
         return
 
     fig = go.Figure()
 
-    # Monochrome grayscale gradient palette
-    colors = [
-        "#FFFFFF", "#D0D0D0", "#A8A8A8", "#808080",
-        "#606060", "#404040", "#353F3F", "#202020",
-        "#C0C0C0", "#909090",
+    # Teal-based palette for cohort lines
+    palette = [
+        COLORS["teal"], "#16a085", "#2ecc71", COLORS["gold_accent"],
+        COLORS["muted"], COLORS["steel_blue"], "#3498db", "#9b59b6",
+        "#e67e22", COLORS["red_accent"],
     ]
 
     for i, cohort in enumerate(cohort_vintages):
-        color = colors[i % len(colors)]
+        color = palette[i % len(palette)]
         fig.add_trace(go.Scatter(
             x=cohort.months,
             y=cohort.retention_pct,
@@ -45,31 +41,28 @@ def render_cohort_chart(cohort_vintages: list[CohortVintage]) -> None:
         ))
 
     fig.update_layout(
-        title=dict(
-            text="Cohort Retention Curves",
-            font=dict(color="#FFFFFF", size=16),
-        ),
+        title=dict(text="Cohort Retention Curves", font=dict(color=COLORS["navy"], size=16)),
         xaxis=dict(
             title="Months Since Cohort Start",
-            color="#A8A8A8",
-            gridcolor="#353F3F",
+            color=COLORS["muted"],
+            gridcolor=COLORS["light_gray"],
             zeroline=False,
         ),
         yaxis=dict(
             title="Retention (%)",
-            color="#A8A8A8",
-            gridcolor="#353F3F",
+            color=COLORS["muted"],
+            gridcolor=COLORS["light_gray"],
             zeroline=False,
             range=[0, max(max(c.retention_pct) for c in cohort_vintages) * 1.05],
         ),
-        plot_bgcolor="#000000",
-        paper_bgcolor="#000000",
-        font=dict(color="#FFFFFF"),
+        plot_bgcolor=COLORS["white"],
+        paper_bgcolor=COLORS["bg"],
+        font=dict(color=COLORS["navy"], family="Inter"),
         legend=dict(
-            bgcolor="rgba(26,31,31,0.8)",
-            bordercolor="#353F3F",
+            bgcolor="rgba(255,255,255,0.9)",
+            bordercolor=COLORS["light_gray"],
             borderwidth=1,
-            font=dict(color="#FFFFFF"),
+            font=dict(color=COLORS["navy"]),
         ),
         hovermode="x unified",
         margin=dict(l=60, r=30, t=50, b=50),
