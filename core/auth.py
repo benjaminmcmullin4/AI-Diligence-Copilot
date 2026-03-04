@@ -2,10 +2,10 @@
 
 import hashlib
 import secrets
-import smtplib
 import sqlite3
 from datetime import datetime, timezone
-from email.message import EmailMessage
+
+import resend
 
 import streamlit as st
 
@@ -38,26 +38,27 @@ def _generate_otp() -> str:
 
 
 def _send_otp_email(settings: Settings, to_email: str, code: str) -> bool:
-    """Send OTP code via Gmail SMTP."""
-    if not settings.smtp_email or not settings.smtp_password:
-        st.error("SMTP credentials not configured. Contact your administrator.")
+    """Send OTP code via Resend API."""
+    if not settings.resend_api_key:
+        st.error("Resend API key not configured. Contact your administrator.")
         return False
 
-    msg = EmailMessage()
-    msg["Subject"] = f"Traverse Diligence Copilot — Verification Code: {code}"
-    msg["From"] = settings.smtp_email
-    msg["To"] = to_email
-    msg.set_content(
-        f"Your verification code is: {code}\n\n"
-        f"This code expires in {OTP_EXPIRY_MINUTES} minutes.\n\n"
-        f"If you did not request this code, please ignore this email.\n\n"
-        f"— Traverse Diligence Copilot"
-    )
+    resend.api_key = settings.resend_api_key
 
     try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-            smtp.login(settings.smtp_email, settings.smtp_password)
-            smtp.send_message(msg)
+        resend.Emails.send(
+            {
+                "from": settings.otp_from_email,
+                "to": [to_email],
+                "subject": f"Traverse Diligence Copilot — Verification Code: {code}",
+                "text": (
+                    f"Your verification code is: {code}\n\n"
+                    f"This code expires in {OTP_EXPIRY_MINUTES} minutes.\n\n"
+                    f"If you did not request this code, please ignore this email.\n\n"
+                    f"— Traverse Diligence Copilot"
+                ),
+            }
+        )
         return True
     except Exception as e:
         st.error(f"Failed to send email: {e}")

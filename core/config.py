@@ -16,9 +16,8 @@ class Settings(BaseSettings):
 
     # Auth settings
     auth_enabled: bool = False
-    smtp_email: str = ""
-    smtp_password: str = ""
-    sendgrid_api_key: str = ""
+    resend_api_key: str = ""
+    otp_from_email: str = "onboarding@resend.dev"
     allowed_email_domains: str = ""
 
     @property
@@ -41,8 +40,8 @@ def get_settings() -> Settings:
         # Map Streamlit secrets to Settings fields
         for key in [
             "ANTHROPIC_API_KEY", "CLAUDE_MODEL", "DATABASE_PATH",
-            "AUTH_ENABLED", "SMTP_EMAIL", "SMTP_PASSWORD",
-            "SENDGRID_API_KEY", "ALLOWED_EMAIL_DOMAINS",
+            "AUTH_ENABLED", "RESEND_API_KEY", "OTP_FROM_EMAIL",
+            "ALLOWED_EMAIL_DOMAINS",
         ]:
             if key in secrets:
                 overrides[key] = str(secrets[key])
