@@ -50,12 +50,12 @@ def _send_otp_email(settings: Settings, to_email: str, code: str) -> bool:
             {
                 "from": settings.otp_from_email,
                 "to": [to_email],
-                "subject": f"Traverse Diligence Copilot — Verification Code: {code}",
+                "subject": f"Meridian Diligence Copilot — Verification Code: {code}",
                 "text": (
                     f"Your verification code is: {code}\n\n"
                     f"This code expires in {OTP_EXPIRY_MINUTES} minutes.\n\n"
                     f"If you did not request this code, please ignore this email.\n\n"
-                    f"— Traverse Diligence Copilot"
+                    f"— Meridian Diligence Copilot"
                 ),
             }
         )
@@ -117,7 +117,7 @@ def _render_login_form(settings: Settings) -> None:
     st.markdown(
         """
         <div class="brand-header" style="justify-content: center; padding-top: 3rem;">
-            <span class="brand-name">Traverse</span>
+            <span class="brand-name">Meridian</span>
             <span class="tagline">Diligence Copilot</span>
         </div>
         <div style="text-align: center; color: #A8A8A8; margin-bottom: 2rem;">

@@ -1,9 +1,9 @@
-"""Traverse | Diligence Copilot — Main Dashboard."""
+"""Meridian | Diligence Copilot — Main Dashboard."""
 
 import streamlit as st
 
 st.set_page_config(
-    page_title="Traverse | Diligence Copilot",
+    page_title="Meridian | Diligence Copilot",
     page_icon=":chart_with_upwards_trend:",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -30,7 +30,7 @@ require_auth(settings)
 st.markdown(
     """
     <div class="brand-header">
-        <span class="brand-name">Traverse</span>
+        <span class="brand-name">Meridian</span>
         <span class="tagline">Diligence Copilot</span>
     </div>
     """,

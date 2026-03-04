@@ -18,14 +18,14 @@ def generate_memo_markdown(
         f"type: Investment Committee Memorandum\n"
         f"business_model: {bm_label}\n"
         f"date: {date_str}\n"
-        f"prepared_by: Traverse Diligence Copilot\n"
+        f"prepared_by: Meridian Diligence Copilot\n"
         f"classification: CONFIDENTIAL\n"
         f"---\n\n"
     )
 
     footer = (
         f"\n\n---\n\n"
-        f"*Confidential — Prepared by Traverse Diligence Copilot on {date_str}*\n"
+        f"*Confidential — Prepared by Meridian Diligence Copilot on {date_str}*\n"
     )
 
     return header + memo_markdown + footer

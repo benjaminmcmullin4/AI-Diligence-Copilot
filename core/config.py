@@ -10,7 +10,7 @@ class Settings(BaseSettings):
 
     anthropic_api_key: str = ""
     claude_model: str = "claude-sonnet-4-20250514"
-    database_path: str = "./data/traverse.db"
+    database_path: str = "./data/meridian.db"
     max_retries: int = 2
     max_tokens: int = 8192
 

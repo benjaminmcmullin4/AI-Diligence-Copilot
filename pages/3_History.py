@@ -3,7 +3,7 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="History | Traverse",
+    page_title="History | Meridian",
     page_icon=":chart_with_upwards_trend:",
     layout="wide",
 )
@@ -23,7 +23,7 @@ require_auth(settings)
 st.markdown(
     """
     <div class="brand-header">
-        <span class="brand-name">Traverse</span>
+        <span class="brand-name">Meridian</span>
         <span class="tagline">Analysis History</span>
     </div>
     """,

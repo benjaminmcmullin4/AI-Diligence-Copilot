@@ -5,7 +5,7 @@ import uuid
 import streamlit as st
 
 st.set_page_config(
-    page_title="New Analysis | Traverse",
+    page_title="New Analysis | Meridian",
     page_icon=":chart_with_upwards_trend:",
     layout="wide",
 )
@@ -26,7 +26,7 @@ require_auth(settings)
 st.markdown(
     """
     <div class="brand-header">
-        <span class="brand-name">Traverse</span>
+        <span class="brand-name">Meridian</span>
         <span class="tagline">New Analysis</span>
     </div>
     """,

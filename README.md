@@ -1,8 +1,8 @@
-# Traverse | Diligence Copilot
+# Meridian | Diligence Copilot
 
-**AI-powered commercial due diligence for the Traverse growth equity practice at Mercato Partners.**
+**AI-powered commercial due diligence for growth equity investors.**
 
-Traverse takes company inputs (financials, website, notes, transcripts) and produces a full IC-style investment memo with structured analysis, source attribution, risk scoring, cohort charts, and professional export.
+Meridian takes company inputs (financials, website, notes, transcripts) and produces a full IC-style investment memo with structured analysis, source attribution, risk scoring, cohort charts, and professional export.
 
 ## Features
 

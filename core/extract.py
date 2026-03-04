@@ -9,7 +9,7 @@ def extract_website_text(url: str, timeout: int = 15) -> str:
     if not url.startswith(("http://", "https://")):
         url = "https://" + url
     try:
-        resp = requests.get(url, timeout=timeout, headers={"User-Agent": "TraverseBot/1.0"})
+        resp = requests.get(url, timeout=timeout, headers={"User-Agent": "MeridianBot/1.0"})
         resp.raise_for_status()
     except requests.RequestException as exc:
         return f"[Could not fetch website: {exc}]"

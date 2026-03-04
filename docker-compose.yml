@@ -1,14 +1,14 @@
 services:
-  traverse:
+  meridian:
     build: .
     ports:
       - "8501:8501"
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
-      - DATABASE_PATH=/app/data/traverse.db
+      - DATABASE_PATH=/app/data/meridian.db
     volumes:
-      - traverse_data:/app/data
+      - meridian_data:/app/data
     restart: unless-stopped
 
 volumes:
-  traverse_data:
+  meridian_data:

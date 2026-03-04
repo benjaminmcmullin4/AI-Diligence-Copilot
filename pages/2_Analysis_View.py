@@ -5,7 +5,7 @@ import json
 import streamlit as st
 
 st.set_page_config(
-    page_title="Analysis View | Traverse",
+    page_title="Analysis View | Meridian",
     page_icon=":chart_with_upwards_trend:",
     layout="wide",
 )
@@ -43,7 +43,7 @@ if record is None:
 st.markdown(
     f"""
     <div class="brand-header">
-        <span class="brand-name">Traverse</span>
+        <span class="brand-name">Meridian</span>
         <span class="tagline">{record['company_name']}</span>
     </div>
     """,

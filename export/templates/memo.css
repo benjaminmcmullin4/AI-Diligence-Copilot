@@ -1,11 +1,11 @@
-/* Traverse IC Memo — Print-Optimized CSS */
+/* Meridian IC Memo — Print-Optimized CSS */
 
 @page {
     size: letter;
     margin: 1in 0.75in;
 
     @top-center {
-        content: "Traverse | Confidential";
+        content: "Meridian | Confidential";
         font-family: 'Inter', 'Segoe UI', sans-serif;
         font-size: 8pt;
         color: #94a3b8;

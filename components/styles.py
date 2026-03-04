@@ -1,4 +1,4 @@
-"""Custom CSS injection for the Traverse brand theme."""
+"""Custom CSS injection for the Meridian brand theme."""
 
 import streamlit as st
 
@@ -257,5 +257,5 @@ BRAND_CSS = """
 
 
 def inject_custom_css() -> None:
-    """Inject the Traverse brand CSS into the Streamlit page."""
+    """Inject the Meridian brand CSS into the Streamlit page."""
     st.markdown(BRAND_CSS, unsafe_allow_html=True)

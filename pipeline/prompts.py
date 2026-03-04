@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# Traverse — Diligence Copilot
+# Meridian — Diligence Copilot
 # Prompt templates for the three-stage LLM pipeline
 # ---------------------------------------------------------------------------
 
