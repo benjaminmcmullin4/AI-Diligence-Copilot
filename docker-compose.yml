@@ -1,0 +1,14 @@
+services:
+  traverse:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - DATABASE_PATH=/app/data/traverse.db
+    volumes:
+      - traverse_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  traverse_data:

@@ -1,0 +1,195 @@
+{
+  "id": "demo-acme-saas",
+  "company_name": "AcmeSaaS",
+  "business_model": "saas",
+  "request": {
+    "company_name": "AcmeSaaS",
+    "business_model": "saas",
+    "website_url": "https://acmesaas.example.com",
+    "arr": 15.0,
+    "nrr": 125.0,
+    "grr": 93.0,
+    "customer_count": 320,
+    "acv": 47.0,
+    "yoy_growth": 65.0,
+    "gross_margin": 78.0,
+    "cac_payback": 14.0,
+    "ltv_cac": 4.2,
+    "company_description": "AcmeSaaS is a B2B vertical SaaS platform for commercial real estate asset managers. The platform automates lease administration, tenant communication, and portfolio analytics. Founded in 2019 by former CBRE technology leaders.",
+    "management_bios": "CEO: Sarah Chen — 15 years in CRE tech, former VP Product at CBRE. CTO: Marcus Williams — ex-Palantir, built data platforms at scale. VP Sales: James Park — scaled ARR from $2M to $12M at prior PropTech startup.",
+    "known_competitors": "Yardi, MRI Software, VTS, Juniper Square"
+  },
+  "condensed": {
+    "company_name": "AcmeSaaS",
+    "business_model": "saas",
+    "condensed_summary": "## Company Overview\nAcmeSaaS is a B2B vertical SaaS platform targeting commercial real estate (CRE) asset managers. Core product automates lease administration, tenant communication, and portfolio analytics. Founded 2019 by former CBRE technology leaders.\n\n## Financial Profile\n- ARR: $15M (65% YoY growth)\n- NRR: 125% (strong expansion within accounts)\n- GRR: 93% (healthy base retention)\n- 320 customers at $47K ACV\n- Gross Margin: 78%\n- CAC Payback: 14 months\n- LTV/CAC: 4.2x\n\n## Management\nExperienced team with deep CRE domain expertise. CEO (ex-CBRE VP Product), CTO (ex-Palantir), VP Sales (scaled prior PropTech from $2M to $12M ARR).\n\n## Competitive Landscape\nCompetes with legacy players (Yardi, MRI Software) and newer entrants (VTS, Juniper Square). Differentiation through modern UX, API-first architecture, and specialized CRE analytics.\n\n## Key Observations\n- Strong unit economics with 14-month payback\n- NRR of 125% suggests significant expansion motion\n- Vertical focus provides defensibility\n- GRR of 93% indicates product stickiness",
+    "data_quality_flags": ["No customer review data provided", "No call transcript data provided"],
+    "financial_data_available": true,
+    "key_topics": ["B2B SaaS", "Commercial Real Estate", "Vertical Software", "Expansion Revenue", "Unit Economics"]
+  },
+  "analysis": {
+    "executive_summary": "AcmeSaaS is a high-growth B2B vertical SaaS platform serving commercial real estate asset managers with a compelling $15M ARR business growing 65% YoY. The company demonstrates strong unit economics (14-month CAC payback, 4.2x LTV/CAC) and best-in-class net retention (125%), indicating significant product-market fit and expansion potential within its customer base. The management team brings deep CRE domain expertise combined with enterprise software scaling experience. Primary risks include customer concentration in a cyclical end market and competition from well-capitalized incumbents.",
+    "company_overview": [
+      {"claim": "B2B vertical SaaS platform focused on commercial real estate asset management", "source": "website", "confidence": 0.95},
+      {"claim": "Founded in 2019 by former CBRE technology leaders", "source": "management", "confidence": 0.9},
+      {"claim": "Core modules: lease administration, tenant communication, portfolio analytics", "source": "website", "confidence": 0.9},
+      {"claim": "320 enterprise customers with $47K average contract value", "source": "financials", "confidence": 0.95}
+    ],
+    "business_model_description": [
+      {"claim": "Annual subscription model with per-asset pricing tiers", "source": "inferred", "confidence": 0.7},
+      {"claim": "Land-and-expand motion with 125% NRR driven by portfolio growth and module adoption", "source": "financials", "confidence": 0.9},
+      {"claim": "78% gross margins consistent with vertical SaaS benchmarks", "source": "financials", "confidence": 0.95},
+      {"claim": "Implementation typically 4-8 weeks with professional services revenue", "source": "inferred", "confidence": 0.6}
+    ],
+    "market_analysis": {
+      "tam": "Global commercial real estate software market estimated at $12B, growing at 11% CAGR driven by digital transformation of property management workflows",
+      "sam": "North American CRE asset management software: ~$4B addressable, focusing on institutional owners and managers with 50+ properties",
+      "som": "Mid-market CRE asset managers (100-5000 units): ~$800M near-term opportunity based on current ACV and expansion capacity",
+      "tam_value_b": 12.0,
+      "sam_value_b": 4.0,
+      "som_value_b": 0.8,
+      "methodology": "Top-down: JLL Research CRE tech spending data combined with bottom-up analysis of ~17,000 institutional CRE managers in North America × estimated $45K annual software spend per firm",
+      "why_now": [
+        {"claim": "COVID accelerated digital adoption in CRE — remote lease management became critical", "source": "inferred", "confidence": 0.85},
+        {"claim": "Legacy systems (Yardi, MRI) have 15-20 year old architectures that frustrate modern users", "source": "notes", "confidence": 0.8},
+        {"claim": "ESG reporting requirements creating new data needs that legacy tools can't serve", "source": "inferred", "confidence": 0.75},
+        {"claim": "CRE transaction volumes recovering post-rate-hike cycle, driving new technology investment", "source": "inferred", "confidence": 0.7}
+      ],
+      "expansion_paths": [
+        "Geographic expansion to European CRE markets",
+        "Downstream: tenant experience and communication modules",
+        "Data/analytics layer: portfolio benchmarking across customer base",
+        "Adjacent verticals: industrial/logistics real estate",
+        "Marketplace: connecting CRE managers with service providers"
+      ]
+    },
+    "competitive_positioning": [
+      {"name": "Yardi", "description": "Dominant legacy CRE software provider. Full suite from accounting to property management. Deeply entrenched in enterprise.", "estimated_revenue": "$1.2B+", "threat_level": 4, "differentiation": "AcmeSaaS offers modern UX, faster implementation, and API-first architecture vs. Yardi's monolithic legacy platform", "source": "notes"},
+      {"name": "MRI Software", "description": "PE-backed CRE software platform (Vista Equity). Aggressive M&A strategy. Strong in residential and commercial.", "estimated_revenue": "$500M+", "threat_level": 3, "differentiation": "AcmeSaaS provides purpose-built analytics for asset managers vs. MRI's broad but shallow functionality", "source": "notes"},
+      {"name": "VTS", "description": "Well-funded ($200M+ raised) CRE leasing and asset management platform. Strong in office leasing.", "estimated_revenue": "$80-120M", "threat_level": 4, "differentiation": "AcmeSaaS focuses specifically on asset management workflows while VTS is primarily leasing-focused", "source": "notes"},
+      {"name": "Juniper Square", "description": "Investment management platform for CRE. Focused on GP/LP workflows and fund administration.", "estimated_revenue": "$40-60M", "threat_level": 2, "differentiation": "Different target persona — Juniper Square serves fund managers while AcmeSaaS serves operating asset managers", "source": "notes"}
+    ],
+    "saas_analysis": {
+      "metrics": {
+        "arr": {"value": "$15.0M", "numeric_value": 15.0, "benchmark": "Strong foundation for growth-stage investment", "rating": "green", "commentary": "Meaningful ARR with clear path to $50M+ given current growth trajectory"},
+        "arr_growth_yoy": {"value": "65%", "numeric_value": 65.0, "benchmark": "Top quartile: >50% at this scale", "rating": "green", "commentary": "Excellent growth rate at $15M ARR. Sustainable if NRR holds."},
+        "nrr": {"value": "125%", "numeric_value": 125.0, "benchmark": "Excellent: >120%, Good: 100-120%", "rating": "green", "commentary": "Best-in-class NRR indicates strong expansion motion — likely driven by portfolio growth and module upsells"},
+        "grr": {"value": "93%", "numeric_value": 93.0, "benchmark": "Excellent: >90%, Concerning: <85%", "rating": "green", "commentary": "Strong base retention. Low churn indicates genuine product stickiness and high switching costs."},
+        "gross_margin": {"value": "78%", "numeric_value": 78.0, "benchmark": "Good for vertical SaaS: 75-85%", "rating": "green", "commentary": "Healthy margins consistent with vertical SaaS. Room for expansion as professional services mix decreases."},
+        "cac_payback": {"value": "14 months", "numeric_value": 14.0, "benchmark": "Excellent: <18mo, Good: 18-24mo", "rating": "green", "commentary": "Efficient go-to-market motion. Enterprise sales with reasonable cycle times."},
+        "ltv_cac": {"value": "4.2x", "numeric_value": 4.2, "benchmark": "Excellent: >3x, Minimum: >1x", "rating": "green", "commentary": "Strong unit economics support aggressive growth investment."},
+        "rule_of_40": {"value": "~58%", "numeric_value": 58.0, "benchmark": "Excellent: >40%, Top decile: >60%", "rating": "green", "commentary": "Assuming ~-7% FCF margin, Rule of 40 score of ~58% is top quartile for growth-stage SaaS."},
+        "magic_number": {"value": "~1.1x", "numeric_value": 1.1, "benchmark": "Excellent: >1.0x, Good: 0.75-1.0x", "rating": "green", "commentary": "Efficient sales motion — each dollar of S&M spend generates more than a dollar of new ARR."},
+        "logo_retention": {"value": "~95%", "numeric_value": 95.0, "benchmark": "Enterprise SaaS: >90% excellent", "rating": "green", "commentary": "Estimated from GRR. Low logo churn consistent with sticky vertical software."}
+      },
+      "arr_bridge": {
+        "beginning_arr": 9.1,
+        "new_arr": 4.8,
+        "expansion_arr": 2.3,
+        "contraction_arr": -0.6,
+        "churn_arr": -0.6,
+        "ending_arr": 15.0
+      },
+      "cohort_vintages": [
+        {"cohort_label": "Q1 2022", "months": [0, 3, 6, 9, 12, 15, 18], "retention_pct": [100, 98, 96, 95, 93, 108, 118]},
+        {"cohort_label": "Q3 2022", "months": [0, 3, 6, 9, 12, 15], "retention_pct": [100, 99, 97, 96, 95, 112]},
+        {"cohort_label": "Q1 2023", "months": [0, 3, 6, 9, 12], "retention_pct": [100, 98, 97, 96, 110]},
+        {"cohort_label": "Q3 2023", "months": [0, 3, 6, 9], "retention_pct": [100, 99, 98, 97]},
+        {"cohort_label": "Q1 2024", "months": [0, 3, 6], "retention_pct": [100, 99, 98]}
+      ],
+      "revenue_quality_assessment": [
+        {"claim": "93% gross retention indicates minimal involuntary churn and strong product-market fit", "source": "financials", "confidence": 0.95},
+        {"claim": "125% NRR driven by both seat expansion (portfolio growth) and module upsell", "source": "financials", "confidence": 0.85},
+        {"claim": "Annual contracts with upfront billing provide revenue visibility", "source": "inferred", "confidence": 0.7},
+        {"claim": "No customer represents more than 3% of ARR based on ACV distribution", "source": "inferred", "confidence": 0.65}
+      ],
+      "unit_economics_assessment": [
+        {"claim": "14-month CAC payback is efficient for enterprise SaaS with $47K ACV", "source": "financials", "confidence": 0.95},
+        {"claim": "4.2x LTV/CAC ratio supports aggressive growth spending", "source": "financials", "confidence": 0.95},
+        {"claim": "Magic number >1.0x indicates efficient sales motion that can absorb additional investment", "source": "financials", "confidence": 0.85}
+      ],
+      "growth_durability": [
+        {"claim": "Large TAM ($4B SAM) with <1% penetration provides long runway", "source": "inferred", "confidence": 0.75},
+        {"claim": "NRR >120% means base grows 25% without acquiring new logos", "source": "financials", "confidence": 0.9},
+        {"claim": "Vertical specialization creates compounding data advantages over time", "source": "inferred", "confidence": 0.7}
+      ]
+    },
+    "non_saas_analysis": null,
+    "management_assessment": {
+      "strengths": [
+        {"claim": "CEO has 15+ years in CRE technology with executive experience at CBRE — deep domain credibility", "source": "management", "confidence": 0.9},
+        {"claim": "CTO's Palantir background brings enterprise data platform expertise critical for analytics module", "source": "management", "confidence": 0.85},
+        {"claim": "VP Sales has demonstrated ability to scale ARR from $2M to $12M — proven growth executor", "source": "management", "confidence": 0.85}
+      ],
+      "gaps": [
+        "No CFO/VP Finance identified — critical for next funding round and financial rigor at scale",
+        "No VP Marketing — may limit brand-driven demand generation as company moves upmarket",
+        "Product leadership unclear — CEO may be over-indexed on product vs. company building"
+      ],
+      "scaling_readiness": "Strong for current scale. Domain expertise + technical depth is rare combination. Need to add financial leadership and marketing before $30M ARR. Team has scaled before but not past $15M individually.",
+      "key_person_risk": "Moderate. CEO Sarah Chen is the primary industry relationship holder and product visionary. Loss would significantly impact customer confidence and product direction. CTO is also critical given platform complexity."
+    },
+    "investment_thesis": {
+      "thesis_one_liner": "AcmeSaaS is the modern vertical SaaS platform displacing legacy CRE software, with best-in-class unit economics and 125% NRR powering capital-efficient growth in a $4B market.",
+      "bull_case": [
+        {"claim": "125% NRR creates a compounding revenue engine — existing customers grow ARR 25%+ annually without new logos", "source": "financials", "confidence": 0.9},
+        {"claim": "Legacy competitors (Yardi, MRI) have aging architectures creating structural replacement opportunity", "source": "notes", "confidence": 0.8},
+        {"claim": "Vertical SaaS in CRE has proven acquirer interest (VTS raised $200M+, Yardi at $1.2B revenue)", "source": "inferred", "confidence": 0.75},
+        {"claim": "14-month CAC payback supports accelerated growth investment without burning cash irresponsibly", "source": "financials", "confidence": 0.9}
+      ],
+      "bear_case": [
+        {"claim": "CRE is cyclical — a downturn could slow new logo acquisition and pressure expansion revenue", "source": "inferred", "confidence": 0.7},
+        {"claim": "Yardi's entrenched position and bundled pricing could create switching cost barriers for larger accounts", "source": "notes", "confidence": 0.75},
+        {"claim": "VTS has significantly more funding and could build competitive asset management features", "source": "notes", "confidence": 0.7},
+        {"claim": "78% gross margins may compress if professional services are needed to win enterprise deals", "source": "inferred", "confidence": 0.6}
+      ],
+      "value_creation_levers": [
+        "Accelerate enterprise sales hiring to capture market share while legacy vendors are slow to modernize",
+        "Build data/analytics moat — aggregated CRE benchmarking across customer base creates network effects",
+        "International expansion to UK/European CRE markets where similar legacy displacement opportunity exists",
+        "Adjacent product expansion: tenant experience, ESG reporting, investor reporting modules",
+        "Strategic M&A: acquire niche CRE data providers to strengthen analytics offering"
+      ],
+      "what_makes_this_a_no": "If CRE enters a prolonged downturn, asset managers would freeze budgets and defer software purchases. Combined with Yardi's ability to discount aggressively (given their profitability), AcmeSaaS could face a 2-3 year growth stall at a scale that doesn't yet support profitability."
+    },
+    "risks": [
+      {"category": "Market", "description": "CRE market cyclicality could materially slow growth during a downturn", "severity": 4, "likelihood": 3, "mitigant": "Essential workflow tool vs. discretionary — lease admin must continue regardless of market conditions", "diligence_question": "What happened to customer acquisition and churn during the 2022-2023 rate hike cycle?"},
+      {"category": "Competitive", "description": "Yardi could build or acquire modern UX layer while retaining customer base", "severity": 4, "likelihood": 2, "mitigant": "Yardi's monolithic architecture limits ability to modernize quickly. 15+ year migration is unlikely.", "diligence_question": "Have you lost any deals or renewals to Yardi's newer products in the last 12 months?"},
+      {"category": "Competitive", "description": "VTS expanding into asset management from leasing stronghold", "severity": 3, "likelihood": 3, "mitigant": "Different entry point and customer relationships. VTS optimized for leasing, not operations.", "diligence_question": "How often do you compete with VTS in deals? What is the win rate?"},
+      {"category": "Concentration", "description": "Customer base of 320 may have meaningful concentration risk", "severity": 3, "likelihood": 2, "mitigant": "Average ACV of $47K across 320 customers suggests reasonable diversification", "diligence_question": "What percentage of ARR comes from top 10 and top 20 customers?"},
+      {"category": "Execution", "description": "Scaling from $15M to $50M ARR requires building enterprise sales machine", "severity": 3, "likelihood": 3, "mitigant": "VP Sales has prior experience scaling to $12M. Investment can fund sales leadership.", "diligence_question": "What is the current sales team structure and what would it look like at $50M ARR?"},
+      {"category": "Technology", "description": "Platform complexity may create technical debt as feature velocity increases", "severity": 2, "likelihood": 3, "mitigant": "CTO with Palantir platform engineering background. API-first architecture.", "diligence_question": "What is the current tech debt situation? How much engineering time goes to maintenance vs. new features?"},
+      {"category": "Team", "description": "Key person risk on CEO for industry relationships and product vision", "severity": 3, "likelihood": 2, "mitigant": "Build deeper management bench with VP-level hires in product and customer success", "diligence_question": "What is the equity incentive structure for the leadership team? Any retention concerns?"}
+    ],
+    "next_diligence_steps": [
+      "Conduct 15-20 customer reference calls across different segments and tenure cohorts",
+      "Obtain detailed cohort-level retention and expansion data by quarter",
+      "Review detailed pipeline and bookings data for last 8 quarters",
+      "Commission independent market sizing study for CRE asset management software",
+      "Interview 5-8 prospects who evaluated but did not purchase AcmeSaaS",
+      "Assess technology architecture through independent technical due diligence",
+      "Review detailed customer concentration analysis (top 10/20/50 accounts)",
+      "Evaluate competitive win/loss data and positioning versus VTS and Yardi",
+      "Conduct management team assessments and identify key hires needed",
+      "Model unit economics sensitivity under downturn scenario (30% slower growth)"
+    ],
+    "suggested_data_requests": [
+      "Monthly ARR by cohort for last 24 months",
+      "Detailed ARR bridge by quarter (new, expansion, contraction, churn)",
+      "Customer list with ARR, start date, ACV, and products purchased",
+      "Top 20 customers with revenue and contract details",
+      "Sales pipeline detail and historical conversion rates",
+      "Detailed P&L with cost breakdown (engineering, sales, G&A)",
+      "CAC calculation methodology and components",
+      "Customer satisfaction scores (NPS, CSAT) by segment",
+      "Product roadmap and engineering resource allocation",
+      "Employee roster with tenure, role, and compensation ranges"
+    ]
+  },
+  "memo_markdown": "# Investment Committee Memorandum\n## AcmeSaaS — B2B Vertical SaaS for Commercial Real Estate\n\n**Date**: March 2026 | **Sector**: PropTech / Vertical SaaS | **Stage**: Growth Equity\n\n---\n\n## Executive Summary\n\nAcmeSaaS is a high-growth B2B vertical SaaS platform serving commercial real estate asset managers with a compelling $15M ARR business growing 65% YoY. The company demonstrates best-in-class net retention (125% NRR), strong base retention (93% GRR), and efficient unit economics (14-month CAC payback, 4.2x LTV/CAC). The management team combines deep CRE domain expertise with enterprise software scaling experience.\n\n**Investment Thesis**: AcmeSaaS is the modern vertical SaaS platform displacing legacy CRE software, with best-in-class unit economics and 125% NRR powering capital-efficient growth in a $4B market.\n\n---\n\n## Company Overview\n\n- B2B vertical SaaS platform focused on commercial real estate asset management *(Source: Website, Confidence: 95%)*\n- Founded in 2019 by former CBRE technology leaders *(Source: Management, Confidence: 90%)*\n- Core modules: lease administration, tenant communication, portfolio analytics *(Source: Website, Confidence: 90%)*\n- 320 enterprise customers with $47K average contract value *(Source: Financials, Confidence: 95%)*\n\n---\n\n## Market Analysis\n\n| Metric | Value | Methodology |\n|--------|-------|-------------|\n| TAM | $12B | Global CRE software market |\n| SAM | $4B | North American CRE asset management |\n| SOM | $800M | Mid-market CRE managers (100-5000 units) |\n\n**Why Now**:\n- COVID accelerated digital adoption in CRE — remote lease management became critical\n- Legacy systems have 15-20 year old architectures frustrating modern users\n- ESG reporting requirements creating new data needs\n- CRE transaction volumes recovering post-rate-hike cycle\n\n**Expansion Paths**: European markets, tenant experience modules, portfolio benchmarking data layer, industrial/logistics vertical, service provider marketplace.\n\n---\n\n## Competitive Positioning\n\n| Competitor | Revenue | Threat | Differentiation |\n|-----------|---------|--------|----------------|\n| Yardi | $1.2B+ | ★★★★☆ | Modern UX, faster implementation, API-first vs. monolithic legacy |\n| MRI Software | $500M+ | ★★★☆☆ | Purpose-built analytics vs. broad but shallow functionality |\n| VTS | $80-120M | ★★★★☆ | Asset management focus vs. primarily leasing-focused |\n| Juniper Square | $40-60M | ★★☆☆☆ | Operating asset managers vs. fund/GP-LP workflows |\n\n---\n\n## Financial Analysis — SaaS Metrics\n\n| Metric | Value | Benchmark | Rating |\n|--------|-------|-----------|--------|\n| ARR | $15.0M | Growth-stage foundation | 🟢 |\n| ARR Growth (YoY) | 65% | Top quartile >50% | 🟢 |\n| Net Revenue Retention | 125% | Excellent >120% | 🟢 |\n| Gross Revenue Retention | 93% | Excellent >90% | 🟢 |\n| Gross Margin | 78% | Good for vertical SaaS | 🟢 |\n| CAC Payback | 14 months | Excellent <18mo | 🟢 |\n| LTV/CAC | 4.2x | Excellent >3x | 🟢 |\n| Rule of 40 | ~58% | Top quartile >40% | 🟢 |\n| Magic Number | ~1.1x | Excellent >1.0x | 🟢 |\n\n**ARR Bridge**:\n- Beginning ARR: $9.1M\n- (+) New: $4.8M\n- (+) Expansion: $2.3M\n- (-) Contraction: $0.6M\n- (-) Churn: $0.6M\n- **Ending ARR: $15.0M**\n\n---\n\n## Management Assessment\n\n**Strengths**:\n- CEO Sarah Chen: 15+ years CRE tech, former VP Product at CBRE\n- CTO Marcus Williams: ex-Palantir, enterprise data platform expertise\n- VP Sales James Park: proven ARR scaling from $2M to $12M\n\n**Gaps**: No CFO (critical for next round), no VP Marketing, product leadership unclear.\n\n**Key Person Risk**: Moderate — CEO is primary relationship holder and product visionary.\n\n---\n\n## Investment Thesis\n\n### Bull Case\n- 125% NRR creates compounding revenue engine\n- Legacy displacement opportunity (Yardi, MRI aging architectures)\n- Proven acquirer interest in CRE vertical SaaS\n- 14-month CAC payback supports accelerated investment\n\n### Bear Case\n- CRE cyclicality could slow growth in downturn\n- Yardi's entrenched position and bundled pricing barriers\n- VTS has significantly more funding\n- Margin compression risk from enterprise professional services\n\n### Value Creation Levers\n1. Accelerate enterprise sales hiring\n2. Build data/analytics moat with cross-customer benchmarking\n3. International expansion (UK/Europe)\n4. Adjacent product modules (tenant experience, ESG, investor reporting)\n5. Strategic M&A for data assets\n\n> **What Would Make This a No**: If CRE enters a prolonged downturn, asset managers would freeze budgets and defer software purchases. Combined with Yardi's ability to discount aggressively, AcmeSaaS could face a 2-3 year growth stall at a scale that doesn't yet support profitability.\n\n---\n\n## Key Risks\n\n| Risk | Category | Severity | Likelihood | Mitigant |\n|------|----------|----------|------------|----------|\n| CRE market cyclicality | Market | 4/5 | 3/5 | Essential workflow tool, not discretionary |\n| Yardi competitive response | Competitive | 4/5 | 2/5 | Monolithic architecture limits modernization |\n| VTS expanding into asset mgmt | Competitive | 3/5 | 3/5 | Different entry point and customer base |\n| Customer concentration | Concentration | 3/5 | 2/5 | $47K ACV across 320 customers |\n| Enterprise sales scaling | Execution | 3/5 | 3/5 | VP Sales has prior scaling experience |\n\n---\n\n## Next Diligence Steps\n\n1. Conduct 15-20 customer reference calls\n2. Obtain detailed cohort-level retention data\n3. Review pipeline and bookings (last 8 quarters)\n4. Independent market sizing study\n5. Interview 5-8 lost prospects\n6. Technical architecture diligence\n7. Customer concentration analysis\n8. Competitive win/loss data review\n9. Management team assessments\n10. Unit economics sensitivity modeling\n\n---\n\n*Confidential — Prepared by Traverse Diligence Copilot*\n",
+  "memo": {
+    "memo_markdown": "",
+    "memo_html": "",
+    "sections": ["Executive Summary", "Company Overview", "Market Analysis", "Competitive Positioning", "Financial Analysis", "Management Assessment", "Investment Thesis", "Key Risks", "Next Diligence Steps"]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "id": "demo-summit-retail",
+  "company_name": "SummitRetail",
+  "business_model": "non_saas",
+  "request": {
+    "company_name": "SummitRetail",
+    "business_model": "non_saas",
+    "website_url": "https://summitretail.example.com",
+    "revenue": 45.0,
+    "ebitda": 8.1,
+    "ebitda_margin": 18.0,
+    "fcf": 5.5,
+    "unit_count": 28,
+    "same_store_growth": 6.5,
+    "company_description": "SummitRetail is a specialty outdoor recreation retailer operating 28 locations across the Mountain West and Pacific Northwest. Curated product assortment targeting affluent outdoor enthusiasts. Mix of third-party brands (Patagonia, Arc'teryx, Black Diamond) and growing private label program (18% of revenue). Omnichannel strategy with e-commerce at 25% of sales.",
+    "management_bios": "CEO: Mike Thornton — 20 years in specialty retail, former Regional VP at REI. CFO: Andrea Walsh — ex-Lululemon finance, strong operational background. VP Merchandising: Tom Nakamura — built private label programs at two prior retailers.",
+    "known_competitors": "REI, Backcountry, Bass Pro/Cabela's, local independents"
+  },
+  "condensed": {
+    "company_name": "SummitRetail",
+    "business_model": "non_saas",
+    "condensed_summary": "## Company Overview\nSummitRetail is a specialty outdoor recreation retailer with 28 locations in Mountain West and Pacific Northwest. Targets affluent outdoor enthusiasts with curated product assortment. Growing private label (18% of revenue) and omnichannel (e-commerce 25% of sales).\n\n## Financial Profile\n- Revenue: $45M\n- EBITDA: $8.1M (18% margin)\n- FCF: $5.5M\n- 28 locations\n- Same-store growth: 6.5%\n\n## Management\nExperienced retail team. CEO ex-REI (20 years specialty retail). CFO ex-Lululemon. VP Merch built private label at two prior retailers.\n\n## Competitive Landscape\nCompetes with REI (dominant), Backcountry (online), Bass Pro/Cabela's (mass market), and local independents. Positioned as premium curated alternative.\n\n## Key Observations\n- 18% EBITDA margins strong for specialty retail\n- 6.5% same-store growth indicates healthy demand\n- Private label at 18% is margin-accretive and growing\n- E-commerce at 25% shows digital adoption\n- Regional concentration in Mountain West/PNW",
+    "data_quality_flags": ["No customer review data provided", "No same-store sales detail by vintage", "Working capital data not provided"],
+    "financial_data_available": true,
+    "key_topics": ["Specialty Retail", "Outdoor Recreation", "Private Label", "Omnichannel", "Regional Expansion"]
+  },
+  "analysis": {
+    "executive_summary": "SummitRetail is a well-managed specialty outdoor retailer generating $45M revenue with attractive 18% EBITDA margins and healthy 6.5% same-store growth. The company's competitive moat comes from curated merchandising, growing private label program (18% of revenue), and deep community connections in affluent outdoor markets. Key value creation opportunities include accelerating private label to 30%+ (margin expansion), disciplined unit growth into adjacent Western markets, and scaling e-commerce beyond 25% of sales. Primary risks are economic sensitivity of discretionary outdoor spending, REI competitive pressure, and execution risk in new market expansion.",
+    "company_overview": [
+      {"claim": "Specialty outdoor recreation retailer with 28 locations in Mountain West and Pacific Northwest", "source": "website", "confidence": 0.95},
+      {"claim": "Curated assortment targeting affluent outdoor enthusiasts", "source": "website", "confidence": 0.9},
+      {"claim": "Mix of premium third-party brands and growing private label (18% of revenue)", "source": "notes", "confidence": 0.9},
+      {"claim": "Omnichannel with e-commerce representing 25% of total sales", "source": "notes", "confidence": 0.85}
+    ],
+    "business_model_description": [
+      {"claim": "Brick-and-mortar specialty retail with growing e-commerce channel", "source": "website", "confidence": 0.95},
+      {"claim": "Revenue per location approximately $1.6M suggesting healthy productivity", "source": "financials", "confidence": 0.9},
+      {"claim": "Private label at 18% of revenue is significantly margin-accretive vs. third-party brands", "source": "notes", "confidence": 0.85},
+      {"claim": "Community-driven customer acquisition through events, clubs, and local partnerships", "source": "inferred", "confidence": 0.7}
+    ],
+    "market_analysis": {
+      "tam": "US outdoor recreation retail market estimated at $25B, growing at 5-7% CAGR driven by increased participation post-COVID",
+      "sam": "Specialty outdoor retail in Western US markets: ~$8B addressable",
+      "som": "Affluent outdoor enthusiast segment in Mountain West and PNW: ~$2B near-term opportunity",
+      "tam_value_b": 25.0,
+      "sam_value_b": 8.0,
+      "som_value_b": 2.0,
+      "methodology": "Outdoor Industry Association participation data combined with NPD Group retail market sizing. Regional focus narrowed using Census Bureau income demographics and outdoor participation indices.",
+      "why_now": [
+        {"claim": "Post-COVID outdoor participation permanently elevated — 70M+ Americans now participate in outdoor recreation", "source": "inferred", "confidence": 0.8},
+        {"claim": "Affluent consumer segment more resilient to economic cycles than mass market", "source": "inferred", "confidence": 0.75},
+        {"claim": "Direct-to-consumer brands (Patagonia, Arc'teryx) increasingly favor curated retail partners over mass distribution", "source": "inferred", "confidence": 0.7},
+        {"claim": "Local independent outdoor shops closing — creating acquisition and market share opportunity", "source": "inferred", "confidence": 0.65}
+      ],
+      "expansion_paths": [
+        "New units in Colorado, Northern California, and Montana",
+        "Private label expansion from 18% to 30%+ of revenue",
+        "E-commerce growth with ship-from-store and BOPIS capabilities",
+        "Services: gear rental, guided experiences, equipment repair",
+        "Loyalty program and membership model (REI-style but premium)"
+      ]
+    },
+    "competitive_positioning": [
+      {"name": "REI", "description": "Dominant outdoor retailer with 180+ stores. Co-op model with 20M+ members. Massive brand strength.", "estimated_revenue": "$3.8B", "threat_level": 4, "differentiation": "SummitRetail offers more curated, premium assortment with deeper local community ties vs. REI's broad selection. Smaller format enables better locations.", "source": "notes"},
+      {"name": "Backcountry", "description": "Online-first outdoor retailer. Strong in technical gear. Acquired by private equity.", "estimated_revenue": "$500M+", "threat_level": 3, "differentiation": "SummitRetail's physical presence enables try-before-buy experience and community events that online-only cannot replicate.", "source": "notes"},
+      {"name": "Bass Pro/Cabela's", "description": "Mass-market outdoor retailer (130+ stores). Broad selection including hunting/fishing.", "estimated_revenue": "$8B+", "threat_level": 2, "differentiation": "Completely different target customer. SummitRetail targets affluent outdoor enthusiasts vs. Bass Pro's mass market. No meaningful overlap.", "source": "notes"},
+      {"name": "Local Independents", "description": "Small owner-operated outdoor shops. Deep community ties but limited selection and operational sophistication.", "estimated_revenue": "Varies", "threat_level": 2, "differentiation": "SummitRetail provides independent-shop curation and community feel with scale advantages in buying power, technology, and private label.", "source": "inferred"}
+    ],
+    "saas_analysis": null,
+    "non_saas_analysis": {
+      "metrics": {
+        "revenue": {"value": "$45.0M", "numeric_value": 45.0, "benchmark": "Solid foundation for growth equity", "rating": "green", "commentary": "Meaningful revenue base with proven unit economics across 28 locations."},
+        "revenue_growth_yoy": {"value": "~15%", "numeric_value": 15.0, "benchmark": "Good for specialty retail: >10%", "rating": "green", "commentary": "Estimated from same-store growth (6.5%) plus new unit contribution. Healthy organic growth."},
+        "gross_margin": {"value": "~52%", "numeric_value": 52.0, "benchmark": "Strong for specialty retail: 45-55%", "rating": "green", "commentary": "Estimated based on EBITDA margin and typical specialty retail cost structure. Private label mix drives above-average margins."},
+        "ebitda_margin": {"value": "18.0%", "numeric_value": 18.0, "benchmark": "Excellent for specialty retail: >15%", "rating": "green", "commentary": "Top-quartile margins for specialty retail. Private label contribution and disciplined SG&A management."},
+        "adjusted_ebitda": {"value": "$8.1M", "numeric_value": 8.1, "benchmark": "Strong for 28-unit retailer", "rating": "green", "commentary": "$290K EBITDA per location is healthy. Need to confirm no material adjustments."},
+        "fcf_conversion": {"value": "68%", "numeric_value": 68.0, "benchmark": "Good: >70% excellent, >50% acceptable", "rating": "yellow", "commentary": "FCF/EBITDA of 68% is slightly below excellent threshold. Likely due to inventory investment and capex for new stores."},
+        "working_capital": {"value": "Not provided", "numeric_value": null, "benchmark": "Specialty retail: inventory management is critical", "rating": "yellow", "commentary": "Working capital detail needed. Inventory turns and payable terms are key for retail cash flow management."},
+        "same_store_growth": {"value": "6.5%", "numeric_value": 6.5, "benchmark": "Excellent: >5%, Good: 2-5%", "rating": "green", "commentary": "Strong same-store growth indicates healthy demand and effective merchandising. Well above retail average."},
+        "customer_concentration": {"value": "Low — consumer retail", "numeric_value": null, "benchmark": "Consumer retail inherently diversified", "rating": "green", "commentary": "No single customer represents meaningful revenue. Brand/supplier concentration is the relevant risk."},
+        "unit_economics": {"value": "$1.6M rev/location", "numeric_value": 1.6, "benchmark": "Healthy for specialty retail format", "rating": "green", "commentary": "$1.6M revenue and ~$290K EBITDA per location. Need to segment by vintage to assess maturity curves."}
+      },
+      "revenue_quality_assessment": [
+        {"claim": "6.5% same-store growth demonstrates organic demand strength in existing markets", "source": "financials", "confidence": 0.9},
+        {"claim": "Private label at 18% of revenue provides higher margins and brand differentiation", "source": "notes", "confidence": 0.85},
+        {"claim": "E-commerce at 25% of sales shows omnichannel adoption and digital customer acquisition", "source": "notes", "confidence": 0.85},
+        {"claim": "Premium brand partnerships (Patagonia, Arc'teryx) signal merchandising credibility", "source": "website", "confidence": 0.8}
+      ],
+      "unit_economics_assessment": [
+        {"claim": "$1.6M average revenue per location is healthy for specialty outdoor format", "source": "financials", "confidence": 0.9},
+        {"claim": "~$290K EBITDA per location provides strong unit contribution", "source": "financials", "confidence": 0.9},
+        {"claim": "New unit payback period estimated at 2-3 years based on margins and typical buildout costs", "source": "inferred", "confidence": 0.6}
+      ],
+      "growth_durability": [
+        {"claim": "Western US outdoor market growing structurally as population migrates to Mountain West", "source": "inferred", "confidence": 0.7},
+        {"claim": "Private label expansion from 18% to 30%+ provides margin tailwind without revenue growth", "source": "notes", "confidence": 0.8},
+        {"claim": "Greenfield unit growth opportunity in underserved Western markets", "source": "inferred", "confidence": 0.7}
+      ],
+      "working_capital_dynamics": "Working capital detail not provided. For specialty retail, key metrics are inventory turnover (target: 3-4x for outdoor), days payable outstanding, and seasonal inventory buildup. Request detailed working capital bridge and inventory aging data.",
+      "customer_concentration_detail": "Consumer retail with no meaningful customer concentration. Supplier/brand concentration is the relevant risk — dependency on Patagonia, Arc'teryx, and other premium brands for 82% of revenue. Private label growth mitigates this."
+    },
+    "management_assessment": {
+      "strengths": [
+        {"claim": "CEO Mike Thornton has 20 years in specialty retail with executive experience at REI — understands competitive landscape deeply", "source": "management", "confidence": 0.9},
+        {"claim": "CFO Andrea Walsh's Lululemon background brings operational rigor from a best-in-class retail operator", "source": "management", "confidence": 0.85},
+        {"claim": "VP Merchandising Tom Nakamura has built private label programs before — critical for margin expansion strategy", "source": "management", "confidence": 0.85}
+      ],
+      "gaps": [
+        "No VP E-Commerce — critical if digital is to grow beyond 25% of sales",
+        "No VP Real Estate/Development — needed for disciplined unit expansion",
+        "Supply chain leadership unclear for scaling to 50+ locations"
+      ],
+      "scaling_readiness": "Strong for current scale. Management team has relevant experience at larger specialty retailers. Need to add e-commerce and real estate leadership before aggressive expansion. Private label growth requires sourcing sophistication.",
+      "key_person_risk": "Moderate. CEO has strong industry relationships and brand vision. VP Merchandising is critical for private label strategy — a key value creation lever. Team is more diversified than typical founder-led retailer."
+    },
+    "investment_thesis": {
+      "thesis_one_liner": "SummitRetail is a high-margin specialty retailer with proven unit economics, a growing private label moat, and significant whitespace for expansion in affluent Western US outdoor markets.",
+      "bull_case": [
+        {"claim": "18% EBITDA margins are top-quartile for specialty retail, driven by private label and operational discipline", "source": "financials", "confidence": 0.9},
+        {"claim": "6.5% same-store growth demonstrates strong brand loyalty and merchandising effectiveness", "source": "financials", "confidence": 0.9},
+        {"claim": "Private label expansion to 30%+ could add 300-500bps of gross margin", "source": "inferred", "confidence": 0.75},
+        {"claim": "Unit growth opportunity in 15+ Western US markets with similar demographics", "source": "inferred", "confidence": 0.7}
+      ],
+      "bear_case": [
+        {"claim": "Discretionary outdoor spending is cyclically sensitive — recession could pressure same-store sales", "source": "inferred", "confidence": 0.75},
+        {"claim": "REI's scale advantages in buying power and marketing could intensify competitive pressure", "source": "notes", "confidence": 0.7},
+        {"claim": "New market expansion carries execution risk — community-driven model may not transfer to new geographies", "source": "inferred", "confidence": 0.7},
+        {"claim": "E-commerce competition from Amazon, Backcountry could pressure online channel economics", "source": "inferred", "confidence": 0.65}
+      ],
+      "value_creation_levers": [
+        "Accelerate private label from 18% to 30% of revenue — estimated 300-500bps margin expansion",
+        "Open 8-12 new locations in underserved Western markets over 3-4 years",
+        "Build e-commerce to 35%+ of sales with improved digital marketing and fulfillment",
+        "Launch loyalty/membership program to increase customer LTV and visit frequency",
+        "Evaluate tuck-in acquisitions of local independents in target expansion markets"
+      ],
+      "what_makes_this_a_no": "If the outdoor participation boom proves to be a COVID-era anomaly and reverts to pre-pandemic levels, SummitRetail's premium positioning could leave it exposed — affluent consumers are resilient but not immune to pulling back on discretionary outdoor spending. Combined with new unit expansion costs, a same-store sales decline could rapidly erode the margin profile."
+    },
+    "risks": [
+      {"category": "Market", "description": "Outdoor recreation spending is discretionary and cyclically sensitive", "severity": 3, "likelihood": 3, "mitigant": "Affluent customer base is more resilient. Private label provides margin cushion.", "diligence_question": "What happened to same-store sales during the 2022-2023 period of inflation concerns?"},
+      {"category": "Competitive", "description": "REI has 10x scale in buying power and national brand recognition", "severity": 4, "likelihood": 2, "mitigant": "Different positioning — curated premium vs. broad selection. Local community model creates defensibility.", "diligence_question": "How does SummitRetail's product overlap with REI? What is the pricing differential on shared brands?"},
+      {"category": "Execution", "description": "New market expansion may not replicate community-driven model", "severity": 3, "likelihood": 3, "mitigant": "Start with markets demographically similar to proven locations. Acquire local shops for instant community.", "diligence_question": "What is the maturity curve for new locations? How long to reach comparable same-store economics?"},
+      {"category": "Supply Chain", "description": "82% dependence on third-party brands creates supplier risk", "severity": 3, "likelihood": 2, "mitigant": "Private label growth reduces dependency. Strong brand relationships built over years.", "diligence_question": "Are there minimum purchase commitments? Has any brand threatened to reduce allocation?"},
+      {"category": "E-commerce", "description": "Online channel economics may be challenged by Amazon and pure-play competitors", "severity": 3, "likelihood": 3, "mitigant": "Focus on experiential retail that online cannot replicate. Use e-commerce for convenience, not price competition.", "diligence_question": "What are e-commerce unit economics vs. in-store? What is the return rate differential?"},
+      {"category": "Real Estate", "description": "Lease risk on 28 locations — rising retail rents in desirable Western markets", "severity": 2, "likelihood": 3, "mitigant": "Review lease terms and renewal optionality. Healthy unit economics provide negotiating leverage.", "diligence_question": "What is the lease expiration schedule? What percentage of leases have favorable renewal options?"}
+    ],
+    "next_diligence_steps": [
+      "Conduct detailed same-store sales analysis by location vintage and market",
+      "Review private label program economics: margins, sourcing, brand perception",
+      "Analyze unit-level P&L for all 28 locations — identify best/worst performers",
+      "Assess real estate pipeline and target expansion markets with demographic analysis",
+      "Interview 15-20 customers on brand perception, competitive alternatives, purchase drivers",
+      "Review e-commerce channel economics: CAC, AOV, return rates, contribution margin",
+      "Evaluate inventory management: turnover rates, markdown cadence, seasonal patterns",
+      "Assess supply chain and vendor relationships — allocation risk from key brands",
+      "Conduct management team assessments and identify key hires for scaling",
+      "Model sensitivity: same-store sales decline of 5-10% impact on cash flow and covenants"
+    ],
+    "suggested_data_requests": [
+      "Unit-level P&L for all 28 locations (last 3 years)",
+      "Same-store sales by location by month (last 24 months)",
+      "Private label performance: revenue, margin, growth rate by category",
+      "Inventory aging report and markdown analysis",
+      "Lease schedule with terms, rent, and renewal options for all locations",
+      "E-commerce KPIs: traffic, conversion, AOV, CAC, return rates",
+      "Customer data: purchase frequency, basket size, retention/repeat rates",
+      "Vendor allocation letters and purchase commitments",
+      "Working capital bridge and seasonal cash flow analysis",
+      "Detailed capex breakdown: maintenance vs. growth (new stores)"
+    ]
+  },
+  "memo_markdown": "# Investment Committee Memorandum\n## SummitRetail — Specialty Outdoor Recreation Retailer\n\n**Date**: March 2026 | **Sector**: Specialty Retail / Outdoor Recreation | **Stage**: Growth Equity\n\n---\n\n## Executive Summary\n\nSummitRetail is a well-managed specialty outdoor retailer generating $45M revenue with attractive 18% EBITDA margins, healthy 6.5% same-store growth, and a growing private label program (18% of revenue). The company operates 28 locations across the Mountain West and Pacific Northwest, targeting affluent outdoor enthusiasts with curated product assortment. Key value creation opportunities include private label expansion (margin accretion), disciplined unit growth, and e-commerce scaling.\n\n**Investment Thesis**: SummitRetail is a high-margin specialty retailer with proven unit economics, a growing private label moat, and significant whitespace for expansion in affluent Western US outdoor markets.\n\n---\n\n## Financial Highlights\n\n| Metric | Value | Rating |\n|--------|-------|--------|\n| Revenue | $45.0M | 🟢 |\n| EBITDA | $8.1M (18% margin) | 🟢 |\n| FCF | $5.5M (68% conversion) | 🟡 |\n| Same-Store Growth | 6.5% | 🟢 |\n| Locations | 28 | — |\n| Revenue/Location | $1.6M | 🟢 |\n| EBITDA/Location | $290K | 🟢 |\n| Private Label Mix | 18% of revenue | 🟢 |\n| E-Commerce Mix | 25% of sales | 🟢 |\n\n---\n\n## Competitive Positioning\n\n| Competitor | Revenue | Threat | Key Difference |\n|-----------|---------|--------|----------------|\n| REI | $3.8B | ★★★★☆ | Curated premium vs. broad selection |\n| Backcountry | $500M+ | ★★★☆☆ | Physical experience vs. online-only |\n| Bass Pro/Cabela's | $8B+ | ★★☆☆☆ | Completely different customer |\n| Local Independents | Varies | ★★☆☆☆ | Scale + curation + private label |\n\n---\n\n## Value Creation Plan\n\n1. **Private Label Expansion**: 18% → 30%+ of revenue (300-500bps margin uplift)\n2. **Unit Growth**: 8-12 new locations in Western US markets\n3. **E-Commerce Scaling**: 25% → 35%+ with improved fulfillment\n4. **Loyalty Program**: Membership model for recurring engagement\n5. **Tuck-in M&A**: Acquire local independents in target markets\n\n---\n\n## Key Risks\n\n| Risk | Severity | Likelihood |\n|------|----------|------------|\n| Discretionary spending sensitivity | 3/5 | 3/5 |\n| REI competitive pressure | 4/5 | 2/5 |\n| New market execution | 3/5 | 3/5 |\n| Brand supplier dependency (82%) | 3/5 | 2/5 |\n| E-commerce economics | 3/5 | 3/5 |\n\n> **What Would Make This a No**: If the outdoor boom reverts to pre-pandemic levels and premium positioning leaves SummitRetail exposed to discretionary pullback during expansion — same-store declines plus new unit costs could rapidly erode the margin profile.\n\n---\n\n*Confidential — Prepared by Traverse Diligence Copilot*\n",
+  "memo": {
+    "memo_markdown": "",
+    "memo_html": "",
+    "sections": ["Executive Summary", "Company Overview", "Market Analysis", "Competitive Positioning", "Financial Analysis", "Management Assessment", "Investment Thesis", "Key Risks", "Next Diligence Steps"]
+  }
+}
