@@ -13,7 +13,7 @@ Student message: {message_text}"""
 
     try:
         response = client.messages.create(
-            model="claude-haiku-4-5-latest",
+            model="claude-sonnet-4-6-20250514",
             max_tokens=200,
             messages=[{"role": "user", "content": prompt}],
         )
@@ -32,7 +32,7 @@ Student message: {message_text}"""
 def classify_image(client, image_data, media_type):
     try:
         response = client.messages.create(
-            model="claude-haiku-4-5-latest",
+            model="claude-sonnet-4-6-20250514",
             max_tokens=200,
             messages=[
                 {
