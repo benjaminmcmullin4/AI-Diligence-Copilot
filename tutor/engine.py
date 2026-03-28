@@ -3,6 +3,42 @@ from tutor.classifier import classify_message, classify_image
 from tutor.prompts import build_system_prompt
 
 
+def _strip_binary_from_history(messages):
+    """Replace image/document data in older messages with a text placeholder.
+
+    This prevents re-sending huge base64 blobs with every API call,
+    which would blow through the rate limit quickly.
+    Only the most recent user message keeps its binary data.
+    """
+    cleaned = []
+    for i, msg in enumerate(messages):
+        if msg["role"] == "user" and isinstance(msg["content"], list):
+            # Check if this is NOT the last user message
+            is_last_user = i == len(messages) - 1 or all(
+                m["role"] != "user" for m in messages[i + 1:]
+            )
+            if is_last_user:
+                cleaned.append(msg)
+            else:
+                # Strip binary, keep text
+                new_content = []
+                for block in msg["content"]:
+                    if block.get("type") == "text":
+                        new_content.append(block)
+                    elif block.get("type") in ("image", "document"):
+                        new_content.append({
+                            "type": "text",
+                            "text": "[Homework photo/PDF was uploaded and reviewed above]",
+                        })
+                if new_content:
+                    cleaned.append({"role": "user", "content": new_content})
+                else:
+                    cleaned.append(msg)
+        else:
+            cleaned.append(msg)
+    return cleaned
+
+
 class TutorSession:
     def __init__(self, client, profile, messages=None):
         self.client = client
@@ -61,13 +97,16 @@ class TutorSession:
 
         self.messages.append({"role": "user", "content": content})
 
+        # Strip binary data from older messages to save tokens
+        api_messages = _strip_binary_from_history(self.messages)
+
         # Stream the response
         try:
             with self.client.messages.stream(
                 model="claude-sonnet-4-20250514",
                 max_tokens=4096,
                 system=system_blocks,
-                messages=self.messages,
+                messages=api_messages,
             ) as stream:
                 full_response = ""
                 for text in stream.text_stream:
