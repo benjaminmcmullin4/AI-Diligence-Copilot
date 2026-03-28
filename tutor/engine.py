@@ -84,7 +84,7 @@ class TutorSession:
                     self.profile["topics_covered"] = topics
 
         except Exception as e:
-            error_msg = f"Oops! Something went wrong. Let's try again! ({type(e).__name__})"
+            error_msg = f"Oops! Something went wrong: {type(e).__name__}: {e}"
             self.messages.append({"role": "assistant", "content": error_msg})
             yield error_msg
 
