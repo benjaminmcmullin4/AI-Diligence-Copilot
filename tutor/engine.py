@@ -52,7 +52,7 @@ class TutorSession:
         # Stream the response
         try:
             with self.client.messages.stream(
-                model="claude-sonnet-4-6-20250514",
+                model="claude-sonnet-4-5-20241022",
                 max_tokens=4096,
                 system=system_blocks,
                 messages=self.messages,
