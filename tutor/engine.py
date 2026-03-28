@@ -164,3 +164,4 @@ def reset_session():
     st.session_state.current_topic = "general"
     if "uploaded_image" in st.session_state:
         del st.session_state.uploaded_image
+    st.session_state.pop("uploaded_image_sent", None)

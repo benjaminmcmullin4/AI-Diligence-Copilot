@@ -52,18 +52,26 @@ def render_sidebar(profile):
         )
 
         if uploaded_file is not None:
-            is_pdf = uploaded_file.type == "application/pdf"
-            st.session_state.uploaded_image = {
-                "bytes": uploaded_file.getvalue(),
-                "name": uploaded_file.name,
-                "type": uploaded_file.type,
-                "is_pdf": is_pdf,
-            }
-            if is_pdf:
-                st.success(f"PDF uploaded: {uploaded_file.name}")
-            else:
-                st.image(uploaded_file, caption="Ready to help with this!", use_container_width=True)
-            st.info("Ask a question about this in the chat!")
+            # Only set upload data if not already processed
+            already_sent = st.session_state.get("uploaded_image_sent", False)
+            if not already_sent and "uploaded_image" not in st.session_state:
+                is_pdf = uploaded_file.type == "application/pdf"
+                st.session_state.uploaded_image = {
+                    "bytes": uploaded_file.getvalue(),
+                    "name": uploaded_file.name,
+                    "type": uploaded_file.type,
+                    "is_pdf": is_pdf,
+                }
+                if is_pdf:
+                    st.success(f"PDF ready: {uploaded_file.name}")
+                else:
+                    st.image(uploaded_file, caption="Ready to help with this!", use_container_width=True)
+                st.info("Ask a question about this in the chat!")
+            elif already_sent:
+                if uploaded_file.type == "application/pdf":
+                    st.success(f"PDF sent: {uploaded_file.name}")
+                else:
+                    st.image(uploaded_file, caption="Already sent!", use_container_width=True)
 
         st.markdown("---")
 

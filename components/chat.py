@@ -105,6 +105,7 @@ def render_chat(session, profile):
                 file_b64 = base64.standard_b64encode(resized).decode("utf-8")
                 display_image = pending_file
             del st.session_state.uploaded_image
+            st.session_state.uploaded_image_sent = True
 
         # Add user message to display history
         user_msg = {"role": "user", "content": user_input}
