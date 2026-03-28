@@ -12,7 +12,6 @@ def _resize_image(image_bytes, max_size=1568):
     img = Image.open(io.BytesIO(image_bytes))
     w, h = img.size
     if max(w, h) <= max_size:
-        # Already small enough, return original bytes
         return image_bytes
     scale = max_size / max(w, h)
     new_w, new_h = int(w * scale), int(h * scale)
@@ -33,12 +32,12 @@ def _get_media_type(file_type):
         "image/png": "image/png",
         "image/gif": "image/gif",
         "image/webp": "image/webp",
+        "application/pdf": "application/pdf",
     }
     return type_map.get(file_type, "image/jpeg")
 
 
 def render_chat(session, profile):
-    # Initialize chat messages display list
     if "chat_messages" not in st.session_state:
         st.session_state.chat_messages = []
 
@@ -72,45 +71,55 @@ def render_chat(session, profile):
     # Render chat history
     for msg in st.session_state.chat_messages:
         with st.chat_message(msg["role"]):
-            # If message has an image, show it
             if msg.get("image_bytes"):
                 st.image(msg["image_bytes"], width=300)
+            if msg.get("pdf_name"):
+                st.info(f"PDF uploaded: {msg['pdf_name']}")
             st.markdown(msg["content"])
 
-    # Check for pending uploaded image
-    pending_image = None
+    # Check for pending upload
+    pending_file = None
     pending_media_type = None
+    pending_is_pdf = False
     if "uploaded_image" in st.session_state:
-        img_data = st.session_state.uploaded_image
-        pending_image = img_data["bytes"]
-        pending_media_type = _get_media_type(img_data["type"])
+        file_data = st.session_state.uploaded_image
+        pending_file = file_data["bytes"]
+        pending_media_type = _get_media_type(file_data["type"])
+        pending_is_pdf = file_data.get("is_pdf", False)
 
     # Chat input
-    user_input = st.chat_input(
-        "Ask me anything about your homework..."
-    )
+    user_input = st.chat_input("Ask me anything about your homework...")
 
     if user_input:
-        # Prepare image data if present
-        image_b64 = None
+        # Prepare file data
+        file_b64 = None
         display_image = None
-        if pending_image:
-            resized = _resize_image(pending_image)
-            image_b64 = base64.standard_b64encode(resized).decode("utf-8")
-            display_image = pending_image
-            # Clear the uploaded image
+        pdf_name = None
+
+        if pending_file:
+            if pending_is_pdf:
+                file_b64 = base64.standard_b64encode(pending_file).decode("utf-8")
+                pdf_name = st.session_state.uploaded_image.get("name", "homework.pdf")
+            else:
+                resized = _resize_image(pending_file)
+                file_b64 = base64.standard_b64encode(resized).decode("utf-8")
+                display_image = pending_file
             del st.session_state.uploaded_image
 
         # Add user message to display history
         user_msg = {"role": "user", "content": user_input}
         if display_image:
             user_msg["image_bytes"] = display_image
+        if pdf_name:
+            user_msg["pdf_name"] = pdf_name
         st.session_state.chat_messages.append(user_msg)
 
         # Display user message
         with st.chat_message("user"):
             if display_image:
                 st.image(display_image, width=300)
+            if pdf_name:
+                st.info(f"PDF uploaded: {pdf_name}")
             st.markdown(user_input)
 
         # Stream assistant response
@@ -118,15 +127,14 @@ def render_chat(session, profile):
             response = st.write_stream(
                 session.send_message_streaming(
                     user_text=user_input,
-                    image_data=image_b64,
+                    image_data=file_b64,
                     media_type=pending_media_type,
                 )
             )
 
-        # Save assistant response to display history
+        # Save assistant response
         st.session_state.chat_messages.append(
             {"role": "assistant", "content": response}
         )
 
-        # Persist session state
         save_session_state(session)

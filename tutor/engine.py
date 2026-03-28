@@ -35,16 +35,28 @@ class TutorSession:
         # Build user message content
         content = []
         if image_data:
-            content.append(
-                {
-                    "type": "image",
-                    "source": {
-                        "type": "base64",
-                        "media_type": media_type or "image/jpeg",
-                        "data": image_data,
-                    },
-                }
-            )
+            if media_type == "application/pdf":
+                content.append(
+                    {
+                        "type": "document",
+                        "source": {
+                            "type": "base64",
+                            "media_type": "application/pdf",
+                            "data": image_data,
+                        },
+                    }
+                )
+            else:
+                content.append(
+                    {
+                        "type": "image",
+                        "source": {
+                            "type": "base64",
+                            "media_type": media_type or "image/jpeg",
+                            "data": image_data,
+                        },
+                    }
+                )
         content.append({"type": "text", "text": user_text or "Can you help me with this homework?"})
 
         self.messages.append({"role": "user", "content": content})
@@ -52,7 +64,7 @@ class TutorSession:
         # Stream the response
         try:
             with self.client.messages.stream(
-                model="claude-sonnet-4-5-20241022",
+                model="claude-sonnet-4-5-latest",
                 max_tokens=4096,
                 system=system_blocks,
                 messages=self.messages,

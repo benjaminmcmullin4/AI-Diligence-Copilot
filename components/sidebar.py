@@ -46,18 +46,23 @@ def render_sidebar(profile):
         # Homework upload
         st.markdown("### &#128248; Upload Homework")
         uploaded_file = st.file_uploader(
-            "Take a photo or upload an image",
-            type=["jpg", "jpeg", "png", "gif", "webp"],
+            "Take a photo or upload an image/PDF",
+            type=["jpg", "jpeg", "png", "gif", "webp", "pdf"],
             label_visibility="collapsed",
         )
 
         if uploaded_file is not None:
+            is_pdf = uploaded_file.type == "application/pdf"
             st.session_state.uploaded_image = {
                 "bytes": uploaded_file.getvalue(),
                 "name": uploaded_file.name,
                 "type": uploaded_file.type,
+                "is_pdf": is_pdf,
             }
-            st.image(uploaded_file, caption="Ready to help with this!", use_container_width=True)
+            if is_pdf:
+                st.success(f"PDF uploaded: {uploaded_file.name}")
+            else:
+                st.image(uploaded_file, caption="Ready to help with this!", use_container_width=True)
             st.info("Ask a question about this in the chat!")
 
         st.markdown("---")
